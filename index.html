@@ -105,6 +105,53 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--sand)}
 @media(max-width:1000px){.needs-grid.v6{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.home-hero{min-height:240px;padding:24px}.needs-grid.v6{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.need-card-body{padding:12px 12px 14px}.need-card-body h2{font-size:18px}.need-card-body p{display:none}.need-stat{font-size:11px;padding:4px 8px}.need-icon{width:34px;height:34px}}
 @media(prefers-reduced-motion:reduce){.need-card,.need-card-img img{transition:none}}
+
+/* v7 home: before/after hero, live previews, app strip */
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:center;margin:8px 0 40px}
+.hx .page-heading{margin:0}.hx-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.hx-demo{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:22px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(160deg,var(--raised),var(--surface))}
+.hx-label{display:inline-block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:10px}.hx-label.gold{color:var(--sand)}
+.hx-before p{font-size:14px;line-height:1.5;margin-top:12px;color:var(--soft);font-style:italic}
+.vn{display:flex;align-items:center;gap:10px;background:#0B101B;border:1px solid var(--line2);border-radius:16px;padding:12px}
+.vn-play{width:34px;height:34px;border-radius:50%;background:var(--sea);color:var(--bg);display:grid;place-items:center;font-size:12px;flex-shrink:0}
+.vn-wave{display:flex;align-items:center;gap:2px;flex:1;height:48px;overflow:hidden}.vn-wave i{display:block;width:3px;border-radius:2px;background:var(--sea);opacity:.85;flex-shrink:0}
+.vn-time{font-size:12px;color:var(--muted)}
+.hx-arrow{color:var(--sand)}
+.reel{position:relative;aspect-ratio:9/16;max-height:360px;border-radius:18px;overflow:hidden;border:2px solid rgba(255,255,255,.08);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.reel img{width:100%;height:100%;object-fit:cover}
+.reel::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 25%,transparent 55%,rgba(0,0,0,.8))}
+.reel-top{position:absolute;top:10px;left:10px;z-index:1;font-size:12px;font-weight:600;color:#fff}
+.reel-cap{position:absolute;left:12px;right:44px;bottom:12px;z-index:1;display:flex;flex-direction:column;gap:3px;color:#fff}.reel-cap strong{font-size:14px;line-height:1.3}.reel-cap span{font-size:12px;opacity:.85}
+.reel-side{position:absolute;right:8px;bottom:14px;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1px;color:#fff;font-size:15px}.reel-side small{font-size:12px;margin-bottom:8px}
+.needs-grid.v7{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.need-card-pv{height:190px;background:#0B101B;border-bottom:1px solid var(--line);padding:14px;overflow:hidden;position:relative}
+.pv{height:100%}
+.pv-content{display:flex;gap:8px;align-items:stretch}
+.mini-reel{flex:1;border-radius:10px;overflow:hidden;position:relative}.mini-reel img{width:100%;height:100%;object-fit:cover}.mini-reel span{position:absolute;bottom:6px;left:6px;font-size:12px;color:#fff;text-shadow:0 1px 3px #000;font-weight:600}
+.pv-chat{display:flex;flex-direction:column;gap:7px;justify-content:center}
+.bub{max-width:85%;font-size:12px;line-height:1.4;padding:8px 11px;border-radius:14px}
+.bub.in{background:var(--raised);color:var(--soft);border-bottom-left-radius:4px;align-self:flex-start}
+.bub.out{background:#1F6F62;color:#EFFFFB;border-bottom-right-radius:4px;align-self:flex-end}
+.pv-ad{border-radius:12px;overflow:hidden;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column}
+.ad-head{display:flex;align-items:center;gap:8px;padding:8px 10px}.ad-head b{display:block;font-size:12px;color:var(--text)}.ad-head small{font-size:12px;color:var(--muted)}
+.ad-av{width:24px;height:24px;border-radius:50%;background:var(--sand);color:var(--bg);display:grid;place-items:center;font-family:'Instrument Serif',serif;font-size:16px}
+.pv-ad img{flex:1;min-height:0;width:100%;object-fit:cover}
+.ad-cta{display:flex;justify-content:space-between;padding:8px 10px;font-size:12px;font-weight:700;color:var(--sand)}
+.pv-chart{display:flex;flex-direction:column;gap:10px}.pv-chart svg{flex:1;width:100%}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kpis div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 10px}.kpis small{display:block;font-size:12px;color:var(--muted)}.kpis b{font-family:var(--display);font-size:22px;color:var(--text)}
+.apps-strip{margin-top:34px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.apps-strip>p{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:14px;color:var(--soft);margin-bottom:16px}
+.soon{font-size:12px;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:3px 9px}
+.apps-track{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.apps-row{display:flex;gap:10px;width:max-content;animation:apps 40s linear infinite}
+.apps-track:hover .apps-row{animation-play-state:paused}
+@keyframes apps{to{transform:translateX(-50%)}}
+.app-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:14px;font-weight:600;color:var(--text);white-space:nowrap}
+.app-chip i{width:10px;height:10px;border-radius:3px;background:hsl(var(--h) 65% 62%)}
+@media(max-width:1000px){.hx{grid-template-columns:minmax(0,1fr)}.needs-grid.v7{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.hx{gap:24px;margin-bottom:28px}.hx-demo{padding:14px;gap:8px}.reel{max-height:280px}.hx-before p{font-size:12px}.vn{padding:8px;gap:6px}.vn-play{width:28px;height:28px}.needs-grid.v7{grid-template-columns:minmax(0,1fr);gap:12px}.need-card-pv{height:170px}.need-card-body p{display:block}}
+@media(max-width:600px){.hx-demo{grid-template-columns:minmax(0,1fr);justify-items:stretch}.hx-arrow{justify-self:center;transform:rotate(90deg)}.hx-after{justify-self:center;width:min(230px,70%)}.reel{max-height:none}}
+@media(prefers-reduced-motion:reduce){.apps-row{animation:none;flex-wrap:wrap;width:auto}.apps-row [aria-hidden]{display:none}}
 </style>
 </head>
 <body>
@@ -381,15 +428,23 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   function tag(text){return `<span class="tag">${text}</span>`;}
   function brand(){return `<span class="brand-mark">m</span><span class="wordmark">maison</span>`;}
   function home(){
-    const icons={"content": "<path d=\"M4 6h11v12H4z\"/><path d=\"M15 10l5-3v10l-5-3\"/>", "leads": "<path d=\"M4 5h16v11H8l-4 4z\"/><path d=\"M8 10h8\"/>", "ads": "<path d=\"M3 10v4h3l7 4V6L6 10z\"/><path d=\"M17 9a4 4 0 0 1 0 6\"/>", "tracking": "<path d=\"M4 20V10M10 20V4M16 20v-7M22 20H2\"/>"};
-    const needs=[
-      ['content','Content','Ideas, video editing & property posts.','portrait','3 ideas ready'],
-      ['leads','Leads','Inbound replies & outbound drafts.','interior','2 replies to send'],
-      ['ads','Ads','Offers, creative & campaign briefs.','dubai','1 brief in draft'],
-      ['tracking','Tracking','Campaign links & a clear view of your work.','home','4 links live']
+    const wave=Array.from({length:28},(_,i)=>`<i style="height:${18+Math.round(Math.abs(Math.sin(i*1.7))*26+((i*7)%11))}px"></i>`).join('');
+    const hero=`<section class="hx"><div class="hx-copy">${heading('YOUR WORKSPACE','From voice note to posted reel.','Talk through a listing. Maison turns it into content, replies, ads and a clear view of what worked.')}<div class="hx-actions"><a class="button" href="#/content">Make a post</a><a class="button secondary" href="#/leads">See your leads</a></div></div>
+    <div class="hx-demo" aria-label="Example: a voice note becomes a vertical reel">
+      <div class="hx-before"><span class="hx-label">Before</span><div class="vn"><span class="vn-play" aria-hidden="true">▶</span><div class="vn-wave" aria-hidden="true">${wave}</div><span class="vn-time">0:42</span></div><p>“3-bed in Marina, sea view, open house Saturday…”</p></div>
+      <div class="hx-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="hx-after"><span class="hx-label gold">After</span><div class="reel"><img src="${I.interior}" alt="" draggable="false"><div class="reel-top">Reel · 0:28</div><div class="reel-cap"><strong>Sea views from every room 🌊</strong><span>3-bed · Dubai Marina · Open house Sat</span></div><div class="reel-side" aria-hidden="true"><b>♥</b><small>1.2k</small><b>💬</b><small>86</small></div></div></div>
+    </div></section>`;
+    const cards=[
+      ['content','Content','Ideas, video editing & property posts.',`<div class="pv pv-content"><div class="mini-reel"><img src="${I.portrait||I.dubai}" alt=""><span>▶ 0:31</span></div><div class="mini-reel"><img src="${I.home}" alt=""><span>▶ 0:24</span></div><div class="mini-reel"><img src="${I.dubai}" alt=""><span>▶ 0:19</span></div></div>`],
+      ['leads','Leads','Inbound replies & outbound drafts.',`<div class="pv pv-chat"><div class="bub in">Hi! Is the Marina 3-bed still available?</div><div class="bub out">Yes, it is. Open house Saturday 11am. Want me to save you a slot?</div><div class="bub in short">Yes please 🙏</div></div>`],
+      ['ads','Ads','Offers, creative & campaign briefs.',`<div class="pv pv-ad"><div class="ad-head"><span class="ad-av">m</span><div><b>Your name</b><small>Sponsored</small></div></div><img src="${I.dubai}" alt=""><div class="ad-cta"><span>Book a viewing</span><span aria-hidden="true">›</span></div></div>`],
+      ['tracking','Tracking','Campaign links & a clear view of your work.',`<div class="pv pv-chart"><div class="kpis"><div><small>Leads</small><b>24</b></div><div><small>Clicks</small><b>1,380</b></div></div><svg viewBox="0 0 200 70" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="tg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#E8B86B" stop-opacity=".45"/><stop offset="1" stop-color="#E8B86B" stop-opacity="0"/></linearGradient></defs><path d="M0 60 L25 52 L50 55 L75 40 L100 44 L125 28 L150 31 L175 16 L200 10 L200 70 L0 70Z" fill="url(#tg)"/><path d="M0 60 L25 52 L50 55 L75 40 L100 44 L125 28 L150 31 L175 16 L200 10" fill="none" stroke="#E8B86B" stroke-width="2.5"/></svg></div>`]
     ];
-    const pic=k=>(I[k]?I[k]:I.dubai);
-    return `<section class="home-hero"><img src="${I.dubai}" alt="" aria-hidden="true"><div class="home-hero-copy">${heading('YOUR WORKSPACE','What do you need help with?','Your content, conversations and campaigns. In one place.')}</div></section><div class="needs-grid v6">${needs.map(([id,title,desc,img,stat])=>`<a class="need-card" href="#/${id}"><div class="need-card-img"><img src="${pic(img)}" alt="" draggable="false"><span class="need-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[id]}</svg></span><span class="need-stat">${stat}</span></div><div class="need-card-body"><div><h2>${title}</h2><p>${desc}</p></div>${arrow}</div></a>`).join('')}</div><div class="home-note"><span>${s.profile.industry==='services'?'Service-business examples.':'Real-estate examples.'} Example images are illustrative.</span><a href="#/brand">Add your business whenever you like ${arrow}</a></div>`;
+    const apps=['GitHub','WhatsApp','Instagram','Meta Ads','TikTok','Canva','Google Analytics','Gmail','Notion','Property Finder'];
+    return `${hero}<div class="needs-grid v7">${cards.map(([id,title,desc,pv])=>`<a class="need-card" href="#/${id}"><div class="need-card-pv">${pv}</div><div class="need-card-body"><div><h2>${title}</h2><p>${desc}</p></div>${arrow}</div></a>`).join('')}</div>
+    <section class="apps-strip" aria-label="Apps Maison is designed to work with"><p>Designed to plug into the apps you already use <span class="soon">Not connected in this demo</span></p><div class="apps-track"><div class="apps-row">${[...apps,...apps].map((n,i)=>`<span class="app-chip"${i>=apps.length?' aria-hidden="true"':''}><i style="--h:${(i*37)%360}"></i>${n}</span>`).join('')}</div></div></section>
+    <div class="home-note"><span>${s.profile.industry==='services'?'Service-business examples.':'Real-estate examples.'} Example images, names and numbers are illustrative.</span><a href="#/brand">Add your business whenever you like ${arrow}</a></div>`;
   }
   function content(){
     const order=['idea-3','idea-1','idea-2','idea-6','idea-4','idea-5'];

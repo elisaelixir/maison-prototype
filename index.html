@@ -575,6 +575,102 @@ html[data-theme=dark] .lm-item img{filter:grayscale(1) invert(1) brightness(1.6)
 html[data-theme=dark] .lm-item:hover img{filter:none}
 @media (prefers-reduced-motion: no-preference){.lm-track{animation:lm 36s linear infinite}.logo-marquee:hover .lm-track,.logo-marquee:focus-within .lm-track{animation-play-state:paused}@keyframes lm{to{transform:translateX(-50%)}}}
 @media (prefers-reduced-motion: reduce){.lm-track{width:auto}.lm-set{flex-wrap:wrap;justify-content:center;gap:16px 32px;padding:0}.lm-set[aria-hidden]{display:none}}
+
+/* v13: pipeline, results by channel, content plan */
+.muted{color:var(--muted)}
+.sum-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.sum{padding:14px 16px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.sum span{display:block;font-size:13px;color:var(--muted);font-weight:600}.sum strong{display:block;font-family:var(--display);font-size:26px;color:var(--text);margin:2px 0}.sum small{font-size:12px;color:var(--muted)}
+.sum.alert{border-color:rgba(242,118,107,.5)}.sum.alert strong{color:var(--hot)}
+.pipe-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:14px}
+.pipe-spacer{flex:1}
+.pipe-q{max-width:260px;min-height:40px}.pipe-bar select{max-width:180px;min-height:40px}
+.seg-sm{display:inline-flex;padding:3px;border-radius:999px;border:1px solid var(--line2);background:var(--surface)}
+.seg-sm button{border:0;background:none;color:var(--muted);font:600 13px var(--body);padding:7px 14px;border-radius:999px;min-height:34px;cursor:pointer}
+.seg-sm button.on{background:var(--text);color:var(--bg)}
+.pipe-new{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr auto;gap:10px;align-items:end;margin-bottom:14px;padding:16px}
+.pipe-new .field{margin:0}.pn-actions{display:flex;gap:8px;align-items:center}
+.pg{margin-bottom:10px}
+.pg-head{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:10px 4px;font:700 15px var(--body);color:var(--text);cursor:pointer}
+.pg-head small{font-weight:600;color:var(--muted);background:var(--raised);border-radius:999px;padding:2px 9px}
+.pg-caret{width:16px;color:var(--muted);font-weight:500}.pg-tot{margin-left:auto;font-size:13px;color:var(--muted);font-weight:600}
+.pg-empty{padding:12px 4px;color:var(--muted);font-size:14px}
+.stage-dot{width:10px;height:10px;border-radius:50%;background:var(--muted);flex-shrink:0}
+.st-new{--c:#7C8CF0}.st-talking{--c:#5CC8B8}.st-viewing{--c:#E2AE55}.st-offer{--c:#E8766B}.st-won{--c:#3DAA6A}.st-lost{--c:#9AA0AD}
+.ps-idea{--c:#9AA0AD}.ps-script{--c:#7C8CF0}.ps-filmed{--c:#5CC8B8}.ps-editing{--c:#E2AE55}.ps-ready{--c:#E8766B}.ps-posted{--c:#3DAA6A}
+.stage-dot[class*="st-"],.stage-dot[class*="ps-"]{background:var(--c)}
+.pt-wrap{overflow-x:auto}
+.pt{width:100%;border-collapse:collapse;font-size:14px;min-width:820px}
+.pt th{text-align:left;font-size:12px;font-weight:600;color:var(--muted);padding:10px 8px;white-space:nowrap}
+.pt td{padding:10px 8px;border-top:1px solid var(--line);vertical-align:middle;color:var(--soft)}
+.pt td strong{display:block;color:var(--text);font-size:14px}.pt td small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.pt tr:hover td{background:var(--raised)}
+.stage-pill{min-height:32px;padding:4px 28px 4px 12px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 45%,transparent)!important;background-color:color-mix(in srgb,var(--c) 14%,var(--surface))!important;color:var(--text);font:600 13px var(--body);width:auto;max-width:170px}
+.cell-num,.cell-text{min-height:32px;border:1px solid transparent!important;background:transparent!important;padding:4px 8px;border-radius:8px;font-size:14px;width:90px}
+.cell-text{width:100%;min-width:220px}
+.cell-num:hover,.cell-num:focus,.cell-text:hover,.cell-text:focus{border-color:var(--line2)!important;background:var(--surface)!important}
+.fu{min-height:32px;font-size:13px;padding:4px 8px;width:auto;border-radius:8px}
+.fu.overdue{border-color:var(--hot)!important;color:var(--hot)}.fu.today{border-color:#E2AE55!important}
+.fu-cell{white-space:nowrap}
+.fu-tag{display:inline-flex!important;align-items:center;gap:4px;font-size:11px!important;font-weight:700;padding:2px 8px;border-radius:999px;margin:4px 0 0 6px!important}
+.fu-tag.overdue{background:rgba(242,118,107,.15);color:var(--hot)!important}.fu-tag.today{background:rgba(226,174,85,.18);color:#B27A1E!important}.fu-tag.later{background:var(--raised);color:var(--muted)!important}
+.src{font-weight:600;color:var(--text)}
+.q-pill{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line2);background:var(--surface);color:var(--muted);border-radius:999px;padding:5px 11px;font:600 12px var(--body);cursor:pointer;min-height:30px}
+.q-pill.on{border-color:#3DAA6A;color:#2C8A54;background:rgba(61,170,106,.1)}
+.pb{display:grid;grid-template-columns:repeat(6,minmax(200px,1fr));gap:10px;overflow-x:auto;padding-bottom:8px}
+.pb-col{background:var(--raised);border-radius:16px;padding:10px;min-height:200px}
+.pb-col header{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--text);padding:4px 4px 10px}
+.pb-col header small{margin-left:auto;color:var(--muted);font-weight:600}
+.pb-cards{display:flex;flex-direction:column;gap:8px;min-height:40px}
+.pb-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.pb-card strong{font-size:14px;color:var(--text)}.pb-card p{font-size:13px}
+.pb-meta{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted)}
+.pb-card .fu-tag{margin:0!important;align-self:flex-start}
+.pb-card .stage-pill{max-width:none;width:100%}
+.chr{margin-bottom:22px}
+.chr-total{display:grid;grid-template-columns:200px minmax(0,1fr) 240px;gap:24px;align-items:center;margin-bottom:12px}
+.chr-total strong{display:block;font-family:var(--display);font-size:34px;color:var(--text)}.chr-total small{font-size:13px;color:var(--muted)}
+.chr-rates{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}.chr-rates b{color:var(--text)}.chr-best{color:var(--sea)!important}
+.fn{display:flex;flex-direction:column;gap:6px}
+.fn-row{display:grid;grid-template-columns:70px minmax(0,1fr) 32px;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.fn-row b{text-align:right;color:var(--text);font-size:13px}
+.fn-bar{height:10px;border-radius:6px;background:var(--raised);overflow:hidden}.fn-bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--sea),#E2AE55);transition:width .6s cubic-bezier(.22,1,.36,1)}
+.chr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.chr-card header{display:flex;align-items:center;gap:8px;margin-bottom:12px}.chr-card h3{font-size:15px}.chr-card header strong{margin-left:auto;font-family:var(--display);font-size:18px;color:var(--text)}
+.chr-ic{color:var(--sea);display:grid}
+.chr-card footer{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:12px;font-size:12px;color:var(--muted)}.chr-card footer b{color:var(--text)}
+.plan-top{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:12px;margin-bottom:16px}
+.mix h2{font-size:15px;margin-bottom:10px}.mix-row{display:flex;flex-wrap:wrap;gap:10px 18px}.mix-item{display:flex;align-items:center;gap:8px}
+.stepper{display:inline-flex;align-items:center;gap:6px}.stepper b{min-width:16px;text-align:center;color:var(--text)}.stepper .icon-btn{width:28px;height:28px;font-size:16px}
+.mix-sum{font-size:13px;color:var(--muted);margin-top:10px}
+.fmt{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.fmt-talking{background:rgba(124,140,240,.16);color:#5662C9}.fmt-carousel{background:rgba(226,174,85,.2);color:#9A6716}.fmt-tour{background:rgba(92,200,184,.18);color:#137D6E}.fmt-long{background:rgba(232,118,107,.16);color:#B9473C}
+html[data-theme=dark] .fmt-talking{color:#A9B3FF}html[data-theme=dark] .fmt-carousel{color:#F1C97E}html[data-theme=dark] .fmt-tour{color:#7FE0D1}html[data-theme=dark] .fmt-long{color:#F7A39B}
+.plan-week{display:flex;flex-direction:column;gap:10px}
+.pw-nav{display:flex;align-items:center;gap:10px}.pw-nav>div{flex:1;text-align:center}.pw-nav strong{display:block;font-family:var(--display);font-size:20px;color:var(--text)}
+.pw-stats{display:flex;justify-content:center;gap:16px;font-size:13px;color:var(--muted)}.pw-stats b{color:var(--text)}
+.plan-week .button{align-self:center}
+.pc-top{display:flex;justify-content:space-between;align-items:center;gap:6px}.pc-top small{font-size:12px;color:var(--muted)}
+.pc-open{font-size:12px;font-weight:700;color:var(--sand)}
+.pcal{display:grid;grid-template-columns:repeat(7,minmax(130px,1fr));gap:8px;overflow-x:auto}
+.pcal-day{background:var(--raised);border-radius:14px;padding:10px;min-height:180px}
+.pcal-day.today{box-shadow:inset 0 0 0 2px var(--text)}
+.pcal-day header{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--muted);font-weight:600;margin-bottom:8px}.pcal-day header b{font-family:var(--display);font-size:20px;color:var(--text)}
+.pcal-day>div{display:flex;flex-direction:column;gap:6px}
+.pcal-item{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--c);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--text)}
+.pcal-item small{font-size:11px;color:var(--muted)}.pcal-item .fmt{align-self:flex-start}
+.pcal-empty{font-size:12px;color:var(--muted)}
+@media(max-width:1000px){.sum-row{grid-template-columns:repeat(3,minmax(0,1fr))}.chr-total{grid-template-columns:1fr}.plan-top{grid-template-columns:1fr}.pipe-new{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.sum-row{grid-template-columns:1fr 1fr}.pipe-q{max-width:none;flex:1}.pipe-spacer{display:none}.pb{grid-template-columns:repeat(6,minmax(230px,80%))}.pipe-new{grid-template-columns:1fr}}
+
+.fu.fu-overdue{border-color:var(--hot)!important;color:var(--hot)}.fu.fu-today{border-color:#E2AE55!important}
+.fu-tag.fu-overdue{background:rgba(242,118,107,.15);color:var(--hot)!important}.fu-tag.fu-today{background:rgba(226,174,85,.18);color:#B27A1E!important}.fu-tag.fu-later{background:var(--raised);color:var(--muted)!important}
+.pt{table-layout:fixed}
+.pg .pt th:nth-child(1){width:17%}.pg .pt th:nth-child(2){width:16%}.pg .pt th:nth-child(3){width:10%}.pg .pt th:nth-child(4){width:15%}.pg .pt th:nth-child(5){width:16%}.pg .pt th:nth-child(6){width:15%}.pg .pt th:nth-child(7){width:11%}
+.pg+.pg .pt thead{visibility:collapse}
+.pb-card .stage-pill{font-size:12px;padding-right:22px}
+.plan-b{grid-template-columns:repeat(6,minmax(150px,1fr))}.plan-b .pb-card{padding:10px}.plan-b .pc-top{flex-wrap:wrap}
+@media(max-width:640px){.plan-b{grid-template-columns:repeat(6,minmax(220px,80%))}}
 </style>
 </head>
 <body>
@@ -834,10 +930,10 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   if(!['sans','serif'].includes(s.profile.font))s.profile.font='sans';
   s.leads=Array.isArray(s.leads)?s.leads:[];s.messages=Array.isArray(s.messages)?s.messages:[];
   if(!Array.isArray(s.plan)||s.plan.length!==6||s.plan.some(i=>!i.contentType))s.plan=C.createPlan(s.profile);
-  const routes=[['welcome','Welcome'],['home','Home'],['content','Content'],['videos','Video'],['photos','Carousels'],['leads','Leads'],['outbound','Outbound'],['whatsapp','WhatsApp'],['ads','Ads'],['ad-ideas','Winning ads'],['tracking','Tracking'],['brand','Your business'],['start','Get set up']];
-  const contentTools=[['content','Ideas & scripts'],['videos','Video editing'],['photos','Carousels & posts']];
+  const routes=[['welcome','Welcome'],['home','Home'],['content','Content'],['videos','Video'],['photos','Carousels'],['leads','Leads'],['pipeline','Pipeline'],['plan','Content plan'],['outbound','Outbound'],['whatsapp','WhatsApp'],['ads','Ads'],['ad-ideas','Winning ads'],['tracking','Tracking'],['brand','Your business'],['start','Get set up']];
+  const contentTools=[['content','Ideas & scripts'],['plan','Content plan'],['videos','Video editing'],['photos','Carousels & posts']];
   const adTools=[['ads','Campaigns'],['ad-ideas','Winning ads'],['tracking','Tracking']];
-  const leadTools=[['leads','Inbound'],['outbound','Outbound']];
+  const leadTools=[['leads','Inbound'],['pipeline','Pipeline'],['outbound','Outbound']];
   const mainRoutes=[['home','Home'],['leads','Leads'],['content','Content'],['ads','Ads'],['brand','Your business']];
   let formats={'talking-head':'Talking head','property-photos':'Carousel','property-video':'Property tour'};
   const purpose={TOF:'Reach new people',MOF:'Build trust',BOF:'Invite an enquiry'};
@@ -881,7 +977,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   const chIcon=c=>ic({'WhatsApp':'message-circle','Instagram DM':'send','Instagram comment':'message-square','Website':'globe','YouTube':'play','LinkedIn':'briefcase'}[c]||'message-circle',18);
   function dashboard(){
     const max=Math.max(...DEMO.topVideos.map(v=>v[2]));
-    return `<section class="dash" aria-label="Your week"><div class="kpi-row">${DEMO.kpis.map(([l,v,n,sp],i)=>`<a class="kpi ${i===3?'alert':''}" href="${i===0?'#/tracking':'#/leads'}"><span class="kpi-label">${l}</span><strong>${v}</strong><span class="kpi-note">${n}</span>${spark(sp).replace('<svg class="spark"',`<svg class="spark" data-k="${i}"`)}</a>`).join('')}</div>
+    return `<section class="dash" aria-label="Your week"><div class="kpi-row">${DEMO.kpis.map(([l,v,n,sp],i)=>`<a class="kpi ${i===3?'alert':''}" href="${i===0?'#/tracking':i===3?'#/leads':'#/pipeline'}"><span class="kpi-label">${l}</span><strong>${v}</strong><span class="kpi-note">${n}</span>${spark(sp).replace('<svg class="spark"',`<svg class="spark" data-k="${i}"`)}</a>`).join('')}</div>
     <div class="dash-grid"><section class="panel dash-panel"><div class="section-title"><h2>Which content brings leads</h2><a class="subtle-link" href="#/tracking">All content ${arrow}</a></div><ol class="lead-bars">${DEMO.topVideos.map(([t,ch,n,img])=>`<li><img src="${I[img]}" alt=""><div class="lb-copy"><strong>${t}</strong><span>${ch}</span><div class="lb-bar"><i style="width:${Math.round(n/max*100)}%"></i></div></div><b>${n}<small> leads</small></b></li>`).join('')}</ol></section>
     <section class="panel dash-panel today-panel"><div class="section-title"><h2>Needs you today</h2><span class="live-note" aria-live="polite" id="live-note">Example activity</span></div><ul class="today" data-auto>${DEMO.today.map(([k,t,a,h],i)=>`<li class="t-${k}"><span class="dot" aria-hidden="true"></span><p>${t}</p><a class="button small ${k==='hot'?'':'secondary'}" href="${h}">${a}</a><button class="icon-btn" data-action="today-done" aria-label="Mark done: ${t}">${ic('check',16)}</button></li>`).join('')}<li class="today-empty"><p>All caught up for today.</p></li></ul></section></div></section>`;
   }
@@ -948,6 +1044,94 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     els.forEach(el=>io.observe(el));
     const sweep=()=>{let left=0;els.forEach(el=>{if(el.style.opacity!=='0')return;if(el.getBoundingClientRect().top<window.innerHeight*0.5){io.unobserve(el);el.style.opacity='';}else left++;});if(!left)window.removeEventListener('scroll',sweep);};window.addEventListener('scroll',sweep,{passive:true});
   }
+  // ---------- shared helpers ----------
+  const DAY=864e5;const today0=()=>{const d=new Date();d.setHours(0,0,0,0);return d;};
+  const iso=d=>{const x=new Date(d);return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');};
+  const fmtDay=v=>{if(!v)return '';const d=new Date(v+'T00:00:00');return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});};
+  const aedK=n=>{if(!n)return '—';return n>=1e6?'AED '+(n/1e6).toFixed(2).replace(/\.?0+$/,'')+'M':'AED '+Math.round(n/1e3)+'K';};
+  // ---------- Pipeline ----------
+  const STAGES=[['new','New'],['talking','Talking'],['viewing','Viewing booked'],['offer','Offer made'],['won','Won'],['lost','Lost']];
+  const SOURCES=['YouTube','Instagram','TikTok','LinkedIn','Paid ad','Referral','Property Finder','Bayut','Website'];
+  let pipeView='table',pipeQ='',pipeSrc='all',pipeClosed={lost:true},pipeAdding=false,DEALS=null;
+  function deals(){if(DEALS)return DEALS;const t=today0().getTime();let n=0;
+    const mk=(name,stage,budget,area,type,src,detail,fu,q,ago)=>({id:'d'+(n++),name,stage,budget,area,type,src,detail,fu:fu==null?'':iso(t+fu*DAY),qualified:q,added:iso(t-ago*DAY)});
+    DEALS=[mk('Omar R.','viewing',3200000,'Dubai Marina','3-bed','YouTube','Marina vs JLT',1,true,6),mk('Hana S.','new',1800000,'JLT','2-bed','Instagram','DM from tour reel',0,false,0),
+      mk('Priya M.','talking',2100000,'Dubai Marina','2-bed','Instagram','3-bed sea view reel',-2,false,4),mk('Daniel K.','talking',2500000,'Business Bay','2-bed off-plan','Website','Off-plan guide',2,true,3),
+      mk('Rania H.','talking',4000000,'Dubai Hills','4-bed townhouse','LinkedIn','Off-plan in 2026 post',3,true,2),mk('Sara K.','talking',1600000,'JVC','2-bed','Instagram','Story reply',-9,false,15),
+      mk('Leila M.','new',6500000,'Business Bay','Office','LinkedIn','Outreach',1,false,1),mk('Karim A.','new',1400000,'JLT','1-bed','Property Finder','Listing enquiry',0,false,0),
+      mk('Nadia R.','viewing',2900000,'Dubai Marina','3-bed','Referral','From Omar R.',2,true,5),mk('Ahmed T.','offer',3600000,'JBR','3-bed','YouTube','Marina vs JLT',1,true,12),
+      mk('Chen W.','offer',5200000,'Dubai Hills','Villa','Paid ad','Dubai Hills villas',0,true,9),mk('Fatima Z.','won',2400000,'JLT','2-bed','Instagram','5 things carousel',null,true,21),
+      mk('Marco B.','won',3100000,'Dubai Marina','3-bed','YouTube','Marina vs JLT',null,true,26),mk('Tom H.','lost',1900000,'JVC','2-bed','Bayut','Listing enquiry',null,false,18),
+      mk('@ahmed.dxb','new',0,'','','Instagram','Comment on carousel',2,false,1)];return DEALS;}
+  const fuState=v=>{if(!v)return '';const d=(new Date(v+'T00:00:00')-today0())/DAY;return d<0?'fu-overdue':d===0?'fu-today':'';};
+  function pipeFiltered(){const q=pipeQ.trim().toLowerCase();return deals().filter(d=>(pipeSrc==='all'||d.src===pipeSrc)&&(!q||(d.name+' '+d.area+' '+d.type+' '+d.detail).toLowerCase().includes(q)));}
+  function stageSelect(d){return `<label class="sr-only" for="st-${d.id}">Stage for ${e(d.name)}</label><select id="st-${d.id}" class="stage-pill st-${d.stage}" data-deal="${d.id}" data-field="stage">${STAGES.map(([v,l])=>`<option value="${v}" ${d.stage===v?'selected':''}>${l}</option>`).join('')}</select>`;}
+  function fuInput(d){const st=fuState(d.fu);return d.stage==='won'||d.stage==='lost'?'<span class="muted">—</span>':`<label class="sr-only" for="fu-${d.id}">Follow-up for ${e(d.name)}</label><input id="fu-${d.id}" type="date" class="fu ${st}" value="${d.fu}" data-deal="${d.id}" data-field="fu">${st?`<small class="fu-tag ${st}">${st==='fu-overdue'?'Overdue':'Today'}</small>`:''}`;}
+  function pipelinePage(){
+    const all=deals(),list=pipeFiltered();const open=all.filter(d=>!['won','lost'].includes(d.stage));
+    const openVal=open.reduce((a,d)=>a+d.budget,0),won=all.filter(d=>d.stage==='won').reduce((a,d)=>a+d.budget,0);
+    const overdue=open.filter(d=>fuState(d.fu)==='fu-overdue').length,viewings=all.filter(d=>d.stage==='viewing').length;
+    const sum=[['Open pipeline',aedK(openVal),open.length+' leads'],['Est. commission',aedK(openVal*0.02),'at 2% of open deals'],['Viewings booked',viewings,'this week'],['Won this month',aedK(won),aedK(won*0.02)+' commission'],['Follow-ups overdue',overdue,overdue?'Clear these first':'All on time']];
+    const table=STAGES.map(([sv,sl])=>{const rows=list.filter(d=>d.stage===sv);const tot=rows.reduce((a,d)=>a+d.budget,0);const closed=!!pipeClosed[sv];
+      return `<section class="pg"><button class="pg-head" data-action="pipe-toggle" data-value="${sv}" aria-expanded="${!closed}"><span class="pg-caret">${closed?'+':'–'}</span><span class="stage-dot st-${sv}"></span>${sl}<small>${rows.length}</small><span class="pg-tot">${tot?aedK(tot):''}</span></button>
+      ${closed?'':rows.length?`<div class="pt-wrap"><table class="pt"><thead><tr><th>Lead</th><th>Stage</th><th>Budget</th><th>Looking for</th><th>Source</th><th>Next follow-up</th><th>Qualified</th></tr></thead><tbody data-auto>${rows.map(d=>`<tr data-id="${d.id}"><td><strong>${e(d.name)}</strong><small>Added ${fmtDay(d.added)}</small></td><td>${stageSelect(d)}</td>
+        <td><label class="sr-only" for="bu-${d.id}">Budget for ${e(d.name)}</label><input id="bu-${d.id}" class="cell-num" inputmode="numeric" value="${d.budget?(d.budget>=1e6?(d.budget/1e6).toFixed(2).replace(/\.?0+$/,'')+'M':Math.round(d.budget/1000)+'K'):''}" placeholder="—" data-deal="${d.id}" data-field="budget"></td>
+        <td>${d.area?`${e(d.type)}<small>${e(d.area)}</small>`:'<span class="muted">Not known yet</span>'}</td><td><span class="src">${e(d.src)}</span><small>${e(d.detail)}</small></td><td class="fu-cell">${fuInput(d)}</td>
+        <td><button class="q-pill ${d.qualified?'on':''}" data-action="pipe-qual" data-id="${d.id}" aria-pressed="${d.qualified}">${d.qualified?ic('check',13)+' Qualified':'Pending'}</button></td></tr>`).join('')}</tbody></table></div>`:'<p class="pg-empty">No leads here.</p>'}</section>`;}).join('');
+    const board=`<div class="pb">${STAGES.map(([sv,sl])=>{const rows=list.filter(d=>d.stage===sv);return `<section class="pb-col"><header><span class="stage-dot st-${sv}"></span>${sl}<small>${rows.length}</small></header><div class="pb-cards" data-auto>${rows.map(d=>`<article class="pb-card" data-id="${d.id}"><strong>${e(d.name)}</strong><p>${d.area?`${e(d.type)}, ${e(d.area)}`:'Needs qualifying'}</p><div class="pb-meta"><span>${aedK(d.budget)}</span><span class="src">${e(d.src)}</span></div>${d.fu&&!['won','lost'].includes(d.stage)?`<span class="fu-tag ${fuState(d.fu)||'fu-later'}">${ic('alarm-clock',12)} ${fuState(d.fu)==='fu-overdue'?'Overdue':fuState(d.fu)==='fu-today'?'Today':fmtDay(d.fu)}</span>`:''}${stageSelect(d)}</article>`).join('')}</div></section>`;}).join('')}</div>`;
+    return `${heading('LEADS / PIPELINE','Every lead, from first message to keys.','Move leads through the stages, change anything in place, and never miss a follow-up.')}
+    <div class="sum-row">${sum.map(([l,v,n],i)=>`<div class="sum ${i===4&&overdue?'alert':''}"><span>${l}</span><strong>${v}</strong><small>${n}</small></div>`).join('')}</div>
+    <div class="pipe-bar"><div class="seg-sm" role="group" aria-label="View">${[['table','Table'],['board','Board']].map(([v,l])=>`<button data-action="pipe-view" data-value="${v}" aria-pressed="${pipeView===v}" class="${pipeView===v?'on':''}">${l}</button>`).join('')}</div>
+      <label class="sr-only" for="pipe-q">Search leads</label><input id="pipe-q" class="pipe-q" type="search" placeholder="Search leads, areas…" value="${e(pipeQ)}">
+      <label class="sr-only" for="pipe-src">Source</label><select id="pipe-src"><option value="all">All sources</option>${SOURCES.map(x=>`<option ${pipeSrc===x?'selected':''}>${x}</option>`).join('')}</select>
+      <span class="pipe-spacer"></span><button class="button secondary small" data-action="pipe-csv">Export CSV</button><button class="button small" data-action="pipe-add">${ic('plus',15)} New lead</button></div>
+    ${pipeAdding?`<form class="pipe-new panel" data-form="new-lead"><div class="field"><label for="nl-name">Name</label><input id="nl-name" required></div><div class="field"><label for="nl-budget">Budget (AED)</label><input id="nl-budget" inputmode="numeric" placeholder="e.g. 2.5M"></div><div class="field"><label for="nl-area">Area</label><input id="nl-area" placeholder="e.g. Dubai Marina"></div><div class="field"><label for="nl-src">Source</label><select id="nl-src">${SOURCES.map(x=>`<option>${x}</option>`).join('')}</select></div><div class="pn-actions"><button class="button small" type="submit">Add lead</button><button class="text-button" type="button" data-action="pipe-add">Cancel</button></div></form>`:''}
+    ${pipeView==='table'?table:board}
+    <p class="boundary">Example leads. In the full version, every conversation from the inbox lands here automatically, with its source.</p>`;
+  }
+  function parseAED(v){v=String(v).replace(/aed|,|\s/gi,'').toUpperCase();const m=v.match(/^([\d.]+)([KM]?)$/);if(!m)return 0;return Math.round(parseFloat(m[1])*(m[2]==='M'?1e6:m[2]==='K'?1e3:1));}
+  // ---------- Results by channel ----------
+  let chPeriod='month';
+  const CHAN=[['YouTube','play',18,9,4,2,112000,0],['Instagram','heart',42,12,4,2,98000,0],['Paid ads','activity',64,10,3,1,52000,9600],['Referrals','message-circle',6,4,3,2,126000,0],['Portals','globe',31,8,2,1,48000,0],['LinkedIn','briefcase',7,3,1,1,130000,0],['TikTok','play',15,3,1,0,0,0]];
+  function channelResults(){const m={week:0.25,month:1,all:3.4}[chPeriod];const sc=x=>Math.round(x*m);
+    const rows=CHAN.map(([n,icn,l,v,o,d,c,sp])=>({n,icn,l:sc(l),v:sc(v),o:sc(o),d:sc(d),c:Math.round(c*m),sp:Math.round(sp*m)}));
+    const T=rows.reduce((a,r)=>({l:a.l+r.l,v:a.v+r.v,o:a.o+r.o,d:a.d+r.d,c:a.c+r.c,sp:a.sp+r.sp}),{l:0,v:0,o:0,d:0,c:0,sp:0});
+    const pct=(a,b)=>b?Math.round(a/b*100)+'%':'—';
+    const best=rows.filter(r=>r.l>=3).sort((a,b)=>b.v/b.l-a.v/a.l)[0];
+    const funnel=r=>`<div class="fn">${[['Leads',r.l],['Viewings',r.v],['Offers',r.o],['Deals',r.d]].map(([k,val])=>`<div class="fn-row"><span>${k}</span><div class="fn-bar"><i style="width:${r.l?Math.max(val?4:0,Math.round(val/r.l*100)):0}%"></i></div><b>${val}</b></div>`).join('')}</div>`;
+    return `<section class="chr"><div class="section-title"><h2>Results by channel</h2><div class="seg-sm" role="group" aria-label="Period">${[['week','This week'],['month','This month'],['all','All time']].map(([v,l])=>`<button data-action="ch-period" data-value="${v}" aria-pressed="${chPeriod===v}" class="${chPeriod===v?'on':''}">${l}</button>`).join('')}</div></div>
+    <div class="chr-total panel"><div><span class="kpi-label">All channels</span><strong>${aedK(T.c)}</strong><small>commission from ${T.d} deal${T.d===1?'':'s'}</small></div>${funnel(T)}<div class="chr-rates"><span>Lead to viewing <b>${pct(T.v,T.l)}</b></span><span>Viewing to deal <b>${pct(T.d,T.v)}</b></span>${best?`<span class="chr-best">Best channel: <b>${best.n}</b>, ${pct(best.v,best.l)} of leads book a viewing</span>`:''}</div></div>
+    <div class="chr-grid">${rows.map(r=>`<article class="chr-card panel"><header><span class="chr-ic">${ic(r.icn,16)}</span><h3>${r.n}</h3><strong>${aedK(r.c)}</strong></header>${funnel(r)}<footer><span>Lead to viewing <b>${pct(r.v,r.l)}</b></span><span>Viewing to deal <b>${pct(r.d,r.v)}</b></span>${r.sp?`<span>Spend <b>${aedK(r.sp)}</b></span><span>Cost per lead <b>AED ${r.l?Math.round(r.sp/r.l):'—'}</b></span><span>Cost per viewing <b>AED ${r.v?Math.round(r.sp/r.v):'—'}</b></span>`:''}</footer></article>`).join('')}</div>
+    <p class="boundary">Example data. In the full version this fills itself from your inbox, pipeline and ad accounts.</p></section>`;}
+  // ---------- Content plan ----------
+  const PSTAGES=[['idea','Idea'],['script','Script'],['filmed','Filmed'],['editing','Editing'],['ready','Ready'],['posted','Posted']];
+  const PFORMATS={talking:['Talking head','#/videos'],carousel:['Carousel','#/photos'],tour:['Property tour','#/videos'],long:['Long form','#/videos']};
+  const IDEABANK={talking:['Marina vs JLT, part 2','Service charges, explained in 60 seconds','Off-plan or ready: what I’d buy in 2026','The question every buyer forgets to ask','Why I’d pick a high floor','What AED 2M buys you in five areas'],carousel:['5 mistakes first-time buyers make in JLT','Payment plans, explained','Myth vs truth: sea views','Your viewing checklist','Rent vs buy in Dubai Marina'],tour:['Sea-view 3-bed, Dubai Marina','Townhouse walkthrough, Dubai Hills','Penthouse tour, JBR','Studio tour for investors, JVC'],long:['Dubai property in 2026: the full guide','A day of viewings with me']};
+  let planView='board',planWeek=0,planMix={talking:2,carousel:1,tour:1,long:0},PLAN=null,planSeq=0;
+  const monday=off=>{const d=today0();const k=(d.getDay()+6)%7;return new Date(d.getTime()-k*DAY+off*7*DAY);};
+  function plan(){if(PLAN)return PLAN;const m=monday(0).getTime();const mk=(title,fmt,stage,dayOff)=>({id:'p'+(planSeq++),title,fmt,stage,date:iso(m+dayOff*DAY)});
+    PLAN=[mk('Marina vs JLT, part 2','talking','script',1),mk('5 mistakes first-time buyers make in JLT','carousel','ready',2),mk('Sea-view 3-bed, Dubai Marina','tour','editing',3),mk('Service charges, explained in 60 seconds','talking','idea',4),mk('Inside a 3-bed with full sea view','tour','posted',-3),mk('Payment plans, explained','carousel','posted',-5)];return PLAN;}
+  function planWeekItems(off){const a=monday(off).getTime(),b=a+7*DAY;return plan().filter(p=>{const t=new Date(p.date+'T00:00:00').getTime();return t>=a&&t<b;});}
+  function addWeek(off){const used=new Set(plan().map(p=>p.title));const days={1:[1],2:[1,3],3:[0,2,4],4:[0,1,3,4],5:[0,1,2,3,4]};const items=[];
+    Object.entries(planMix).forEach(([f,n])=>{for(let i=0;i<n;i++){const t=IDEABANK[f].find(x=>!used.has(x))||(PFORMATS[f][0]+' idea');used.add(t);items.push([t,f]);}});
+    const slots=days[Math.min(5,Math.max(1,items.length))]||[0,1,2,3,4];const m=monday(off).getTime();
+    items.forEach(([t,f],i)=>plan().push({id:'p'+(planSeq++),title:t,fmt:f,stage:'idea',date:iso(m+(slots[i%slots.length]+(i>=slots.length?Math.floor(i/slots.length):0))*DAY)}));return items.length;}
+  function planStageSel(p){return `<label class="sr-only" for="ps-${p.id}">Stage for ${e(p.title)}</label><select id="ps-${p.id}" class="stage-pill ps-${p.stage}" data-plan="${p.id}" data-field="stage">${PSTAGES.map(([v,l])=>`<option value="${v}" ${p.stage===v?'selected':''}>${l}</option>`).join('')}</select>`;}
+  function planPage(){
+    const items=planWeekItems(planWeek),m=monday(planWeek),end=new Date(m.getTime()+6*DAY);
+    const range=`${m.toLocaleDateString('en-GB',{day:'numeric',month:'short'})} to ${end.toLocaleDateString('en-GB',{day:'numeric',month:'short'})}`;
+    const fmtChip=f=>`<span class="fmt fmt-${f}">${PFORMATS[f][0]}</span>`;
+    const mixTotal=Object.values(planMix).reduce((a,b)=>a+b,0);
+    const board=`<div class="pb plan-b">${PSTAGES.map(([sv,sl])=>{const rows=items.filter(p=>p.stage===sv);return `<section class="pb-col"><header><span class="stage-dot ps-${sv}"></span>${sl}<small>${rows.length}</small></header><div class="pb-cards" data-auto>${rows.map(p=>`<article class="pb-card"><div class="pc-top">${fmtChip(p.fmt)}<small>${fmtDay(p.date)}</small></div><strong>${e(p.title)}</strong>${planStageSel(p)}<a class="pc-open" href="${p.stage==='idea'||p.stage==='script'?'#/content':PFORMATS[p.fmt][1]}">${p.stage==='idea'||p.stage==='script'?'Write script':p.stage==='posted'?'See results':'Open editor'}</a></article>`).join('')}</div></section>`;}).join('')}</div>`;
+    const cal=`<div class="pcal">${Array.from({length:7},(_,i)=>{const d=new Date(m.getTime()+i*DAY),k=iso(d),rows=items.filter(p=>p.date===k),isToday=k===iso(today0());return `<section class="pcal-day ${isToday?'today':''}"><header>${d.toLocaleDateString('en-GB',{weekday:'short'})}<b>${d.getDate()}</b></header><div data-auto>${rows.map(p=>`<div class="pcal-item ps-${p.stage}">${fmtChip(p.fmt)}<span>${e(p.title)}</span><small>${PSTAGES.find(s=>s[0]===p.stage)[1]}</small></div>`).join('')||'<p class="pcal-empty">Nothing planned</p>'}</div></section>`;}).join('')}</div>`;
+    const table=`<div class="pt-wrap"><table class="pt"><thead><tr><th>Title</th><th>Format</th><th>Posting date</th><th>Stage</th><th></th></tr></thead><tbody data-auto>${items.sort((a,b)=>a.date.localeCompare(b.date)).map(p=>`<tr><td><label class="sr-only" for="pt-${p.id}">Title</label><input id="pt-${p.id}" class="cell-text" value="${e(p.title)}" data-plan="${p.id}" data-field="title"></td><td>${fmtChip(p.fmt)}</td><td><label class="sr-only" for="pd-${p.id}">Posting date</label><input id="pd-${p.id}" type="date" class="fu" value="${p.date}" data-plan="${p.id}" data-field="date"></td><td>${planStageSel(p)}</td><td><button class="icon-btn" data-action="plan-del" data-id="${p.id}" aria-label="Remove ${e(p.title)}">${ic('x',15)}</button></td></tr>`).join('')||'<tr><td colspan="5" class="pg-empty">Nothing planned this week yet.</td></tr>'}</tbody></table></div>`;
+    return `${heading('CONTENT / PLAN','Your week of content, planned.','Set your mix once. Each week, Maison drafts the slots and you move them from idea to posted.')}
+    <div class="plan-top"><div class="mix panel"><h2>Weekly mix</h2><div class="mix-row">${Object.entries(PFORMATS).map(([f,[l]])=>`<div class="mix-item">${fmtChip(f)}<div class="stepper"><button class="icon-btn" data-action="mix" data-f="${f}" data-d="-1" aria-label="Fewer ${l}" ${planMix[f]<=0?'disabled':''}>–</button><b aria-live="polite">${planMix[f]}</b><button class="icon-btn" data-action="mix" data-f="${f}" data-d="1" aria-label="More ${l}" ${planMix[f]>=5?'disabled':''}>+</button></div></div>`).join('')}</div><p class="mix-sum">${mixTotal} post${mixTotal===1?'':'s'} a week</p></div>
+      <div class="plan-week panel"><div class="pw-nav"><button class="icon-btn" data-action="plan-week" data-d="-1" aria-label="Previous week">‹</button><div><span class="kpi-label">${planWeek===0?'This week':planWeek===1?'Next week':planWeek===-1?'Last week':'Week of'}</span><strong>${range}</strong></div><button class="icon-btn" data-action="plan-week" data-d="1" aria-label="Next week">›</button></div>
+      <div class="pw-stats"><span><b>${items.length}</b> planned</span><span><b>${items.filter(p=>p.stage==='ready'||p.stage==='posted').length}</b> ready or posted</span></div><button class="button small" data-action="plan-gen">${ic('plus',15)} Plan ${planWeek===0?'this':'this'} week from my mix</button></div></div>
+    <div class="pipe-bar"><div class="seg-sm" role="group" aria-label="View">${[['board','Board'],['calendar','Calendar'],['table','Table']].map(([v,l])=>`<button data-action="plan-view" data-value="${v}" aria-pressed="${planView===v}" class="${planView===v?'on':''}">${l}</button>`).join('')}</div></div>
+    ${planView==='board'?board:planView==='calendar'?cal:table}`;
+  }
   function home(){
     const name=s.profile.name.trim().split(' ')[0];
     const setup=!s.profile.name.trim()||!s.profile.areas.length;
@@ -969,7 +1153,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     <section class="referral"><div><h2>Know an agent who’d use this?</h2><p>Invite them. You both get a month free when they join.</p></div><button class="button secondary" data-action="referral">Copy invite link</button></section>
     <div class="home-note"><span>Example data, names and images are illustrative.</span><a href="#/brand">Your business details ${arrow}</a></div>`;
   }
-  window.MaisonLeadsByContent=function(){return `<section class="panel lbc"><div class="section-title"><h2>Leads by content</h2>${tag('EXAMPLE DATA')}</div><table class="lbc-table"><thead><tr><th>Content</th><th>Channel</th><th>Views</th><th>Leads</th><th>Booked calls</th></tr></thead><tbody>${DEMO.topVideos.map(([t,ch,n],i)=>`<tr><td>${t}</td><td>${ch}</td><td>${[12400,21800,9100,4900][i].toLocaleString()}</td><td><b>${n}</b></td><td>${[4,2,1,0][i]}</td></tr>`).join('')}</tbody></table><p class="boundary">In the full version, each video gets its own link, and the AI writes your next scripts based on what brought in the most leads.</p></section>
+  window.MaisonLeadsByContent=function(){return `${channelResults()}<section class="panel lbc"><div class="section-title"><h2>Leads by content</h2>${tag('EXAMPLE DATA')}</div><table class="lbc-table"><thead><tr><th>Content</th><th>Channel</th><th>Views</th><th>Leads</th><th>Booked calls</th></tr></thead><tbody>${DEMO.topVideos.map(([t,ch,n],i)=>`<tr><td>${t}</td><td>${ch}</td><td>${[12400,21800,9100,4900][i].toLocaleString()}</td><td><b>${n}</b></td><td>${[4,2,1,0][i]}</td></tr>`).join('')}</tbody></table><p class="boundary">In the full version, each video gets its own link, and the AI writes your next scripts based on what brought in the most leads.</p></section>
     <section class="panel booking"><div class="bk-copy"><div class="section-title"><h2>Your booking page</h2>${tag('CONCEPT')}</div><p class="section-description">One simple page for your bio, video descriptions and ads. Every link carries its source, so a booking from a YouTube video shows up in Leads tagged with that video.</p>
       <ul class="bk-links">${[['YouTube','Marina vs JLT','yt-marina-jlt'],['Instagram reel','3-bed sea view','ig-seaview'],['Carousel','5 things to check','ig-5things'],['Ad','Marina Vista launch','ad-marina-vista']].map(([ch,t,src])=>`<li><span>${ch} · ${t}</span><code>maison.link/${e((s.profile.name||'you').split(' ')[0].toLowerCase())}?src=${src}</code><button class="icon-btn" data-action="copy-link" data-value="maison.link/you?src=${src}" aria-label="Copy link for ${t}">${ic('copy',15)}</button></li>`).join('')}</ul></div>
       <div class="bk-phone" aria-label="Booking page preview"><div class="bk-screen"><span class="bk-src">${ic('play',11)} From YouTube: Marina vs JLT</span><img src="${I.portrait}" alt=""><h3>${e(agent())}</h3><p>Dubai Marina and JLT specialist</p>
@@ -1169,10 +1353,10 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     formats={'talking-head':'Talking head','property-photos':'Carousel','property-video':serviceBusiness?'Service video':'Property tour'};
     
     if(route()==='welcome'){document.title='Maison: content and leads for Dubai agents';app.innerHTML=landing();afterLanding();return;}
-    const r=route(),isContent=contentTools.some(([id])=>id===r),isLeads=['leads','outbound','whatsapp'].includes(r),isAds=adTools.some(([id])=>id===r);
+    const r=route(),isContent=contentTools.some(([id])=>id===r),isLeads=['leads','pipeline','outbound','whatsapp'].includes(r),isAds=adTools.some(([id])=>id===r);
     if(r==='whatsapp')s.work.inbound.channel='whatsapp';
     const toolRoute=r==='whatsapp'?'leads':r;
-    const page={home,content,videos,photos,leads:leadsPage,outbound:departments.outbound,whatsapp:leadsPage,ads:adsPage,'ad-ideas':adIdeas,tracking:departments.tracking,brand:brandPage,start}[r];
+    const page={home,content,videos,photos,leads:leadsPage,pipeline:pipelinePage,plan:planPage,outbound:departments.outbound,whatsapp:leadsPage,ads:adsPage,'ad-ideas':adIdeas,tracking:departments.tracking,brand:brandPage,start}[r];
     document.title=`Maison — ${routes.find(([id])=>id===r)[1]}`;
     const tools=isContent?contentTools:isLeads?leadTools:isAds?adTools:[];
     const toolNav=tools.length?`<nav class="tool-nav ${isContent?'content-nav':isAds?'ads-nav':'leads-nav'}" aria-label="${isContent?'Content tools':isAds?'Ad tools':'Lead tools'}">${tools.map(([id,label])=>`<a href="#/${id}" ${id===toolRoute?'aria-current="page"':''}>${label}</a>`).join('')}</nav>`:'';
@@ -1198,6 +1382,18 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   document.addEventListener('click',ev=>{const b=ev.target.closest('[data-action]');if(!b)return;const a=b.dataset.action,v=b.dataset.value;
     if(a==='theme'){document.documentElement.dataset.theme=v;try{localStorage.setItem('maison-theme',v);}catch{}render();}
     if(a==='lp-scroll'){const t=document.getElementById(b.dataset.target);if(t){t.scrollIntoView({behavior:reduceMotion()?'auto':'smooth',block:'start'});const f=t.querySelector('h2, input');if(f&&b.dataset.target==='lp-apply')setTimeout(()=>document.getElementById('ap-name')?.focus({preventScroll:true}),500);}}
+    if(a==='pipe-view'){pipeView=v;render();}
+    if(a==='pipe-toggle'){pipeClosed[v]=!pipeClosed[v];render();}
+    if(a==='pipe-qual'){const d=deals().find(x=>x.id===b.dataset.id);if(d){d.qualified=!d.qualified;render();}}
+    if(a==='pipe-add'){pipeAdding=!pipeAdding;render();if(pipeAdding)document.getElementById('nl-name')?.focus();}
+    if(a==='pipe-csv'){const rows=[['Lead','Stage','Budget AED','Area','Type','Source','Detail','Next follow-up','Qualified','Added']].concat(deals().map(d=>[d.name,STAGES.find(x=>x[0]===d.stage)[1],d.budget||'',d.area,d.type,d.src,d.detail,d.fu,d.qualified?'Yes':'No',d.added]));
+      const csv=rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');try{const url=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));const l=document.createElement('a');l.href=url;l.download='maison-pipeline.csv';document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);toast('Pipeline exported as CSV.');}catch{toast('Downloads aren’t available in this preview.');}}
+    if(a==='ch-period'){chPeriod=v;render();}
+    if(a==='plan-view'){planView=v;render();}
+    if(a==='plan-week'){planWeek+= +b.dataset.d;render();}
+    if(a==='mix'){const f=b.dataset.f;planMix[f]=Math.max(0,Math.min(5,planMix[f]+ +b.dataset.d));render();}
+    if(a==='plan-gen'){const n=addWeek(planWeek);render();toast(n?`${n} slots added to this week. Move them along as you go.`:'Set your weekly mix first.');}
+    if(a==='plan-del'){const i=plan().findIndex(p=>p.id===b.dataset.id);if(i>=0){plan().splice(i,1);b.closest('tr')?.remove();}}
     if(a==='video-length'){videoLength=v;render();}
     if(a==='edit-mode'){editMode=v;render();}
     if(a==='post-type'){postType=v;render();}
@@ -1225,10 +1421,13 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     if(a==='ob-jump'){obStep=+b.dataset.i;render();}
     if(a==='ob-later'){save();location.hash='#/home';toast('Saved. Pick up the interview any time from the setup banner.');}
   });
-  document.addEventListener('submit',ev=>{const f=ev.target;if(f.dataset.form==='booking'){ev.preventDefault();toast('Demo: this booking would land in Leads tagged “YouTube · Marina vs JLT”.');return;}if(f.dataset.form!=='apply')return;ev.preventDefault();const msg=document.getElementById('ap-msg');const name=f.name.value.trim(),email=f.email.value.trim(),ok=f.consent.checked;
+  document.addEventListener('submit',ev=>{const f=ev.target;if(f.dataset.form==='new-lead'){ev.preventDefault();const name=f.querySelector('#nl-name').value.trim();if(!name){f.querySelector('#nl-name').focus();return;}deals().unshift({id:'n'+Date.now(),name,stage:'new',budget:parseAED(f.querySelector('#nl-budget').value),area:f.querySelector('#nl-area').value.trim(),type:'',src:f.querySelector('#nl-src').value,detail:'Added by you',fu:iso(today0()),qualified:false,added:iso(today0())});pipeAdding=false;pipeClosed.new=false;render();toast(name+' added to New.');return;}if(f.dataset.form==='booking'){ev.preventDefault();toast('Demo: this booking would land in Leads tagged “YouTube · Marina vs JLT”.');return;}if(f.dataset.form!=='apply')return;ev.preventDefault();const msg=document.getElementById('ap-msg');const name=f.name.value.trim(),email=f.email.value.trim(),ok=f.consent.checked;
     if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)||!ok){msg.textContent=!name?'Add your name.':!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)?'Add a valid work email.':'Tick the box so we can contact you.';msg.classList.add('err');return;}
     msg.classList.remove('err');msg.textContent=`Thanks, ${name.split(' ')[0]}. This is a demo, so nothing was sent.`;f.querySelector('button[type=submit]').disabled=true;});
   document.addEventListener('change',ev=>{const t=ev.target;
+    if(t.dataset.deal){const d=deals().find(x=>x.id===t.dataset.deal);if(d){const f=t.dataset.field;if(f==='stage'){d.stage=t.value;if(['won','lost'].includes(d.stage))d.fu='';toast(`${d.name} moved to ${STAGES.find(x=>x[0]===d.stage)[1]}.`);render();}else if(f==='fu'){d.fu=t.value;render();}else if(f==='budget'){d.budget=parseAED(t.value);render();}}}
+    if(t.dataset.plan){const p=plan().find(x=>x.id===t.dataset.plan);if(p){const f=t.dataset.field;if(f==='stage'){p.stage=t.value;render();}else if(f==='date'){p.date=t.value;render();}else if(f==='title'){p.title=t.value;}}}
+    if(t.id==='pipe-src'){pipeSrc=t.value;render();}
     if(t.dataset.action==='auto-send'){autoSend=t.checked;}
     if(t.id==='caption-font'){s.profile.captionFont=t.value;save();render();}
     if(t.id==='script-from'){scriptFrom=t.value;render();}
@@ -1236,7 +1435,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     if(t.id==='car-ref-file'&&t.files.length){carRefName=t.files.length+' screenshot'+(t.files.length>1?'s':'')+' added';render();}
     if(t.id==='skill-file'&&t.files[0]){skillFile=t.files[0].name;render();}
   });
-  document.addEventListener('input',ev=>{const t=ev.target;if(t.id==='car-topic')carTopic=t.value;if(t.id==='car-ref')carRef=t.value;if(t.id==='edit-prompt'){editPrompt=t.value;const pv=document.getElementById('prompt-preview');if(pv)pv.outerHTML=promptPreview();}if(t.dataset.interview){const k=t.dataset.interview;if(!s.profile.interview)s.profile.interview={};if(k.startsWith('q_'))s.profile.interview[k]=t.value;else s.profile[k]=k==='areas'?t.value.split(',').map(x=>x.trim()).filter(Boolean).slice(0,10):t.value;save();}if(t.id==='edit-prompt')editPrompt=t.value;if(t.dataset.slide!==undefined){slides[+t.dataset.slide]=t.value;const el=document.querySelectorAll('.car-slide p')[+t.dataset.slide];if(el)el.textContent=t.value;}});
+  document.addEventListener('input',ev=>{const t=ev.target;if(t.id==='pipe-q'){pipeQ=t.value;const pos=t.selectionStart;render();const n=document.getElementById('pipe-q');if(n){n.focus();n.setSelectionRange(pos,pos);}return;}if(t.id==='car-topic')carTopic=t.value;if(t.id==='car-ref')carRef=t.value;if(t.id==='edit-prompt'){editPrompt=t.value;const pv=document.getElementById('prompt-preview');if(pv)pv.outerHTML=promptPreview();}if(t.dataset.interview){const k=t.dataset.interview;if(!s.profile.interview)s.profile.interview={};if(k.startsWith('q_'))s.profile.interview[k]=t.value;else s.profile[k]=k==='areas'?t.value.split(',').map(x=>x.trim()).filter(Boolean).slice(0,10):t.value;save();}if(t.id==='edit-prompt')editPrompt=t.value;if(t.dataset.slide!==undefined){slides[+t.dataset.slide]=t.value;const el=document.querySelectorAll('.car-slide p')[+t.dataset.slide];if(el)el.textContent=t.value;}});
   window.addEventListener('hashchange',()=>{const legacy=location.hash==='#/companion';clearTimeout(toastTimer);document.querySelector('#toast').classList.remove('show');render();window.scrollTo(0,0);document.querySelector(legacy?'#chat-input':'main h1')?.focus({preventScroll:true});});
   render();
 })();

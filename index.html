@@ -371,6 +371,147 @@ html body,html[data-theme=light] body{background:var(--bg)!important}
 }
 @media (prefers-reduced-motion: reduce){.kpi.bumped strong,.lead-bars li.bumped b{animation:none}}
 .t-warm .dot{background:var(--sea)}
+
+/* v12: lively home (brief asks for motion; one easing curve, all off under reduced motion) */
+.page-heading h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em}
+.page-heading h1 .w>span{display:inline-block}
+.kpi strong.tick{animation:tick .7s ease-out}
+@keyframes tick{0%{color:var(--sea)}100%{color:var(--text)}}
+.marquee{display:flex;flex-direction:column;gap:10px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-row{display:flex;gap:10px;width:max-content}
+.marquee .app-chip{padding:9px 16px;font-weight:600}
+.typing-dots{align-self:flex-end;display:inline-flex;gap:4px;padding:10px 12px;border-radius:14px;background:#1E7A6B}
+.typing-dots i{width:6px;height:6px;border-radius:50%;background:#fff;opacity:.7}
+.mini-reel{position:relative}
+.mr-prog{position:absolute;top:6px;left:6px;right:6px;height:3px;border-radius:3px;background:rgba(255,255,255,.35);z-index:2;overflow:hidden}
+.mr-prog::after{content:'';position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
+.pv-ad{position:relative}
+.pv-ad img{transform-origin:center}
+.ad-cta{position:relative;overflow:hidden}
+@media (prefers-reduced-motion: no-preference){
+  .mq-row{animation:mq 38s linear infinite}.mq-row.rev{animation-direction:reverse;animation-duration:44s}
+  .marquee:hover .mq-row{animation-play-state:paused}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  /* chat preview: a 9s conversation loop */
+  .pv-chat.loop .b1,.pv-chat.loop .b2,.pv-chat.loop .b3,.pv-chat.loop .b4{opacity:0;animation:9s ease-out infinite}
+  .pv-chat.loop .b1{animation-name:c1}.pv-chat.loop .b2{animation-name:c2}.pv-chat.loop .b3{animation-name:c3}.pv-chat.loop .b4{animation-name:c4}
+  @keyframes c1{0%{opacity:0;transform:translateY(8px)}6%,88%{opacity:1;transform:none}96%,100%{opacity:0}}
+  @keyframes c2{0%,14%{opacity:0;max-height:0;padding:0 12px}18%,30%{opacity:1;max-height:30px;padding:10px 12px}33%,100%{opacity:0;max-height:0;padding:0 12px;margin:0}}
+  @keyframes c3{0%,32%{opacity:0;transform:translateY(8px)}38%,88%{opacity:1;transform:none}96%,100%{opacity:0}}
+  @keyframes c4{0%,55%{opacity:0;transform:translateY(8px) scale(.95)}61%,88%{opacity:1;transform:none}96%,100%{opacity:0}}
+  .typing-dots i{animation:dot 1s ease-in-out infinite}.typing-dots i:nth-child(2){animation-delay:.15s}.typing-dots i:nth-child(3){animation-delay:.3s}
+  @keyframes dot{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(-3px);opacity:1}}
+  /* content preview: reels play one after another */
+  .pv-content.loop .mr-prog::after{animation:mrp 9s linear infinite}
+  .pv-content.loop .mini-reel:nth-child(2) .mr-prog::after{animation-delay:3s}.pv-content.loop .mini-reel:nth-child(3) .mr-prog::after{animation-delay:6s}
+  @keyframes mrp{0%{transform:scaleX(0)}33.3%{transform:scaleX(1)}33.4%,100%{transform:scaleX(0)}}
+  .pv-content.loop .mini-reel{animation:mra 9s ease-in-out infinite}
+  .pv-content.loop .mini-reel:nth-child(2){animation-delay:3s}.pv-content.loop .mini-reel:nth-child(3){animation-delay:6s}
+  @keyframes mra{0%,33%{transform:scale(1.04);box-shadow:0 8px 20px rgba(0,0,0,.25)}38%,100%{transform:scale(.97);opacity:.75}}
+  /* ad preview: slow pan + CTA shine */
+  .pv-ad.loop img{animation:pan 10s ease-in-out infinite alternate}
+  @keyframes pan{from{transform:scale(1.05) translateX(-3%)}to{transform:scale(1.12) translateX(3%)}}
+  .pv-ad.loop .ad-cta::after{content:'';position:absolute;top:0;bottom:0;width:40%;left:-50%;background:linear-gradient(90deg,transparent,rgba(232,184,107,.35),transparent);animation:shine 3.2s ease-in-out infinite}
+  @keyframes shine{0%,40%{left:-50%}80%,100%{left:120%}}
+  /* hero demo back on */
+  .reel img{animation:kenburns 9s ease-in-out infinite alternate!important}
+  .hx-arrow{animation:nudge 1.6s ease-in-out infinite!important}
+  .reel-side b:first-child{animation:likepop 3s ease-in-out infinite!important}
+  .setup-banner{background-size:200% 200%!important;animation:bannerflow 10s ease-in-out infinite}
+  @keyframes bannerflow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .setup-banner .sb-icon{animation:micbob 2.4s ease-in-out infinite!important}
+  .t-hot .dot{animation:hotpulse 1.8s ease-out infinite!important}
+  /* hover: clickable things respond */
+  .need-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(21,23,28,.16)}
+  .kpi:hover{transform:translateY(-3px)!important;box-shadow:0 12px 30px rgba(21,23,28,.10)!important}
+  .button{position:relative;overflow:hidden}
+  .button::after{content:'';position:absolute;top:0;bottom:0;width:35%;left:-60%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease}
+  .button:hover::after{left:130%}
+  .lead-bars li{transition:background .2s}.lead-bars li:hover{background:var(--raised);border-radius:12px}
+}
+html[data-theme=light] .setup-banner{background:linear-gradient(120deg,#FFF3DB,#E3F6F2,#FFF3DB)!important}
+
+/* v13: landing page */
+.signout{font-size:13px;color:var(--muted);margin-left:12px}.signout:hover{color:var(--text)}
+.lp{max-width:1240px;margin:0 auto;padding:0 32px}
+.lp-nav{display:flex;align-items:center;gap:24px;height:84px;position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
+.lp-nav nav{display:flex;gap:4px;margin-left:12px}
+.lp-link{background:none;border:0;color:var(--muted);font:600 14px var(--body);padding:10px 12px;border-radius:999px;cursor:pointer;min-height:40px}.lp-link:hover{color:var(--text);background:var(--raised)}
+.lp-nav-actions{margin-left:auto;display:flex;align-items:center;gap:14px}.lp-nav-actions .theme-toggle{margin-left:0}
+.lp-login{font-weight:600;font-size:14px;color:var(--text)}
+.button.lg{padding:15px 26px;font-size:16px}
+.lp-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:center;padding:56px 0 64px}
+.lp-kicker{font-size:15px;font-weight:600;color:var(--sea);margin-bottom:16px}
+.lp-h1{font-family:var(--display);font-size:clamp(44px,6vw,80px);line-height:.98;letter-spacing:-.04em;font-weight:650;color:var(--text);margin:0}
+.lp-h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em}.lp-h1 .w>span{display:inline-block}
+.lp-sub{font-size:19px;line-height:1.55;color:var(--soft);max-width:34em;margin:22px 0 30px}
+.lp-cta{display:flex;flex-wrap:wrap;gap:12px}.lp-note{font-size:14px;color:var(--muted);margin-top:16px}
+.lp-stage{position:relative;height:560px}
+.lp-phone{position:absolute;left:50%;top:10px;width:270px;margin-left:-135px;transform:rotate(-2deg);padding:10px;border-radius:38px;background:#15171C;box-shadow:0 40px 80px rgba(21,23,28,.28)}
+.lp-phone .reel{max-height:none;aspect-ratio:9/17;border-radius:30px;border:0}
+.lp-float{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 40px rgba(21,23,28,.14);padding:14px 16px;color:var(--text)}
+.lp-lead{left:0;top:110px;display:flex;gap:12px;align-items:flex-start;width:260px}
+.lp-f-ic{width:34px;height:34px;border-radius:50%;background:#1E7A6B;color:#fff;display:grid;place-items:center;flex-shrink:0}
+.lp-lead b{display:block;font-size:14px}.lp-lead div>span{display:block;font-size:13px;color:var(--muted);margin-top:2px}.lp-lead .lp-f-ic{color:#fff}.lp-lead em{display:inline-flex;align-items:center;gap:5px;font-style:normal;font-size:12px;font-weight:700;color:var(--sand);margin-top:8px}
+.lp-kpi{right:0;top:290px;width:200px}.lp-kpi span{font-size:13px;color:var(--muted);font-weight:600}.lp-kpi strong{display:block;font-family:var(--display);font-size:38px;line-height:1.1}.lp-kpi svg{width:100%;height:32px;color:var(--sea)}
+.lp-voice{left:30px;bottom:30px;display:flex;align-items:center;gap:10px;padding:10px 14px}.lp-voice .vn-wave{height:30px;flex:none;width:110px}.lp-voice>span:last-child{font-size:12px;color:var(--muted)}
+.lp-works{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lp-works span{font-size:14px;color:var(--muted)}.lp-works ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 26px}.lp-works li{font-family:var(--display);font-weight:600;font-size:18px;color:var(--soft)}
+.lp-features{display:flex;flex-direction:column;gap:96px;padding:96px 0}
+.lp-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:center}
+.lp-row.flip .lp-row-copy{order:2}
+.lp-row h2,.lp-rules h2,.lp-steps h2,.lp-faq h2,.lp-apply h2{font-family:var(--display);font-size:clamp(30px,3.6vw,46px);line-height:1.05;letter-spacing:-.03em;font-weight:650}
+.lp-row-copy p{font-size:17px;line-height:1.6;color:var(--soft);margin:18px 0}
+.lp-points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.lp-points li{position:relative;padding-left:26px;font-size:15px;color:var(--text)}
+.lp-points li::before{content:'';position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:3px;background:var(--chip,#F1C97E)}
+.lp-demo{border-radius:28px;background:var(--raised);padding:36px;min-height:360px;display:flex;align-items:center;justify-content:center}
+.lp-demo-chat .pv-chat{width:100%;max-width:420px;gap:10px;height:auto}
+.lp-demo-chat .bub{font-size:15px;padding:12px 15px;border-radius:18px}
+.lp-demo-reel .hx-demo{width:100%;background:var(--surface)}
+.lp-demo-bars{display:block;background:var(--surface);padding:26px}
+.lp-demo-bars h3{font-size:16px}
+.lp-rules{margin:0 -32px;padding:96px 32px;background:#15171C;color:#F4EFE6;border-radius:32px}
+.lp-rules-in{max-width:1176px;margin:0 auto}
+.lp-rules h2{color:#fff}.lp-rules-sub{font-size:18px;line-height:1.55;color:#C9CDD6;max-width:40em;margin:16px 0 40px}
+.lp-rules-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.lp-check{width:30px;height:30px;border-radius:50%;background:#F1C97E;color:#1A1407;display:grid;place-items:center;margin-bottom:16px}
+.lp-rule h3{font-size:18px;color:#fff;margin-bottom:8px}.lp-rule p{font-size:15px;line-height:1.55;color:#C9CDD6}
+.lp-fine{font-size:13px;color:#9AA0AD;margin-top:40px}
+.lp-steps{padding:96px 0}.lp-steps ol{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;counter-reset:none}
+.lp-n{font-family:var(--display);font-size:56px;font-weight:650;color:var(--sand);line-height:1;display:block;margin-bottom:14px}
+.lp-steps h3{font-size:20px;margin-bottom:8px}.lp-steps p{font-size:15px;line-height:1.55}
+.lp-faq{max-width:760px;padding:0 0 96px}.lp-faq h2{margin-bottom:24px}
+.lp-q{border-top:1px solid var(--line);padding:4px 0}.lp-q:last-child{border-bottom:1px solid var(--line)}
+.lp-q summary{cursor:pointer;list-style:none;padding:18px 36px 18px 0;font-size:18px;font-weight:600;color:var(--text);position:relative}
+.lp-q summary::-webkit-details-marker{display:none}
+.lp-q summary::after{content:'+';position:absolute;right:4px;top:12px;font-size:26px;font-weight:400;color:var(--muted);transition:transform .25s}
+.lp-q[open] summary::after{transform:rotate(45deg)}
+.lp-q p{font-size:16px;line-height:1.6;padding:0 0 20px;max-width:36em}
+.lp-apply{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start;padding:56px;border-radius:32px;background:linear-gradient(135deg,#FFF3DB,#E3F6F2);margin-bottom:64px}
+html[data-theme=dark] .lp-apply{background:linear-gradient(135deg,#2A2416,#13302B)}
+.lp-apply p{font-size:17px;line-height:1.55;color:var(--soft);margin-top:14px}
+.lp-form{display:flex;flex-direction:column;gap:14px;background:var(--surface);padding:28px;border-radius:22px;border:1px solid var(--line)}
+.lp-form .field{margin:0}
+.lp-consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--soft)}.lp-consent input{width:18px;height:18px;min-height:0;margin-top:2px;accent-color:var(--sand)}
+.lp-form-note{font-size:13px;color:var(--muted)}.lp-form-note.err{color:var(--hot)}
+.lp-foot{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding:28px 0 40px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.lp-foot .wordmark{font-size:24px}
+@media (prefers-reduced-motion: no-preference){
+  .lp-lead{animation:floaty 6s ease-in-out infinite}.lp-kpi{animation:floaty 7s ease-in-out infinite -2s}.lp-voice{animation:floaty 5.5s ease-in-out infinite -1s}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .lp-lead em{animation:blinkin 6s ease-in-out infinite}
+  @keyframes blinkin{0%,30%{opacity:0}40%,100%{opacity:1}}
+  .lp-kpi svg polyline{stroke-dasharray:160;animation:draw 4s ease-in-out infinite}
+  @keyframes draw{0%{stroke-dashoffset:160}50%,100%{stroke-dashoffset:0}}
+  .lp-points li::before{transition:transform .3s}.lp-row:hover .lp-points li::before{transform:rotate(45deg)}
+}
+@media (max-width:1000px){.lp-hero,.lp-row,.lp-apply{grid-template-columns:minmax(0,1fr)}.lp-row.flip .lp-row-copy{order:0}.lp-rules-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lp-nav nav{display:none}.lp-stage{height:520px;max-width:520px;width:100%;margin:0 auto}}
+@media (max-width:640px){.lp{padding:0 18px}.lp-nav{gap:10px;height:70px}.lp-nav-actions .button,.lp-nav-actions .theme-toggle{display:none}.lp-hero{padding:24px 0 40px;gap:28px}.lp-sub{font-size:17px}
+  .lp-stage{height:470px}.lp-phone{width:220px;margin-left:-110px}.lp-lead{width:220px;top:70px;left:-6px}.lp-kpi{width:160px;top:270px;right:-6px}.lp-voice{left:0;bottom:6px}
+  .lp-features{gap:64px;padding:64px 0}.lp-demo{padding:18px;min-height:0}.lp-rules{margin:0 -18px;padding:64px 18px;border-radius:24px}.lp-rules-grid,.lp-steps ol{grid-template-columns:minmax(0,1fr)}.lp-apply{padding:24px;border-radius:24px}.lp-cta .button{width:100%}}
+.lp-demo-reel .hx-demo{grid-template-columns:1fr auto minmax(170px,.9fr)}.lp-demo-reel .reel-cap strong{font-size:15px}.lp-foot>span:first-child{display:inline-flex;align-items:center;gap:8px}
+@media(max-width:640px){.lp-demo-reel .hx-demo{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -630,7 +771,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   if(!['sans','serif'].includes(s.profile.font))s.profile.font='sans';
   s.leads=Array.isArray(s.leads)?s.leads:[];s.messages=Array.isArray(s.messages)?s.messages:[];
   if(!Array.isArray(s.plan)||s.plan.length!==6||s.plan.some(i=>!i.contentType))s.plan=C.createPlan(s.profile);
-  const routes=[['home','Home'],['content','Content'],['videos','Video'],['photos','Carousels'],['leads','Leads'],['outbound','Outbound'],['whatsapp','WhatsApp'],['ads','Ads'],['ad-ideas','Winning ads'],['tracking','Tracking'],['brand','Your business'],['start','Get set up']];
+  const routes=[['welcome','Welcome'],['home','Home'],['content','Content'],['videos','Video'],['photos','Carousels'],['leads','Leads'],['outbound','Outbound'],['whatsapp','WhatsApp'],['ads','Ads'],['ad-ideas','Winning ads'],['tracking','Tracking'],['brand','Your business'],['start','Get set up']];
   const contentTools=[['content','Ideas & scripts'],['videos','Video editing'],['photos','Carousels & posts']];
   const adTools=[['ads','Campaigns'],['ad-ideas','Winning ads'],['tracking','Tracking']];
   const leadTools=[['leads','Inbound'],['outbound','Outbound']];
@@ -651,7 +792,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   const photo=(key,cls='',alt='Illustrative stock image, not a live property listing')=>`<img src="${I[key]}" class="${cls}" alt="${alt}" draggable="false">`;
   const agent=()=>s.profile.name.trim()||'Your name';
   const area=()=>s.profile.areas[0]||'your area';
-  const route=()=>routes.some(([r])=>r===location.hash.slice(2))?location.hash.slice(2):'home';
+  const route=()=>{const h=location.hash;if(!h||h==='#'||h==='#/'||h==='#/welcome')return 'welcome';const id=h.slice(2);return routes.some(([r])=>r===id)?id:'home';};
   const departments=window.MaisonDepartments({state:s,e,heading,tag,arrow,save,render,download,toast,renderRecords:leadRecords});
   function save(){try{localStorage.setItem(KEY,JSON.stringify(s));}catch{toast('Browser storage is full. Keep this tab open.');}}
   function toast(text){const el=document.querySelector('#toast');el.textContent=text;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3500);}
@@ -659,7 +800,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   function tag(text){const t=String(text);return `<span class="tag">${t.charAt(0)+t.slice(1).toLowerCase()}</span>`;}
   function brand(){return `<span class="brand-mark">m</span><span class="wordmark">maison</span>`;}
   const DEMO={
-    kpis:[['Content views','48.2k','+18% vs last week',[12,15,14,19,22,21,27]],['New leads','24','+6 vs last week',[2,3,3,4,3,5,4]],['Hot leads','5','Want a viewing or a call',[0,1,1,0,1,1,1]],['Follow-ups due','7','Oldest: 9 days',[1,1,2,1,0,1,1]]],
+    kpis:[['Content views','48,236','+18% vs last week',[12,15,14,19,22,21,27]],['New leads','24','+6 vs last week',[2,3,3,4,3,5,4]],['Hot leads','5','Want a viewing or a call',[0,1,1,0,1,1,1]],['Follow-ups due','7','Oldest: 9 days',[1,1,2,1,0,1,1]]],
     topVideos:[['Marina vs JLT: where should you buy?','YouTube',11,'portrait'],['Inside a 3-bed with full sea view','Instagram reel',7,'interior'],['5 things to check before you buy','Carousel',4,'home'],['Off-plan in 2026: what changed','TikTok',2,'dubai']],
     today:[['hot','Omar R. wants to view the Marina 3-bed on Saturday','Reply drafted','#/leads'],['due','Sara K. hasn’t heard from you in 9 days','Follow-up ready','#/leads'],['due','3 replies waiting for your OK','Review','#/leads'],['idea','Your Marina vs JLT video brought the most leads. Make part 2?','Script it','#/content']],
     chats:[
@@ -676,18 +817,78 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   const chIcon=c=>ic({'WhatsApp':'message-circle','Instagram DM':'send','Instagram comment':'message-square','Website':'globe','YouTube':'play','LinkedIn':'briefcase'}[c]||'message-circle',18);
   function dashboard(){
     const max=Math.max(...DEMO.topVideos.map(v=>v[2]));
-    return `<section class="dash" aria-label="Your week"><div class="kpi-row">${DEMO.kpis.map(([l,v,n,sp],i)=>`<a class="kpi ${i===3?'alert':''}" href="${i===0?'#/tracking':'#/leads'}"><span class="kpi-label">${l}</span><strong>${v}</strong><span class="kpi-note">${n}</span>${spark(sp)}</a>`).join('')}</div>
+    return `<section class="dash" aria-label="Your week"><div class="kpi-row">${DEMO.kpis.map(([l,v,n,sp],i)=>`<a class="kpi ${i===3?'alert':''}" href="${i===0?'#/tracking':'#/leads'}"><span class="kpi-label">${l}</span><strong>${v}</strong><span class="kpi-note">${n}</span>${spark(sp).replace('<svg class="spark"',`<svg class="spark" data-k="${i}"`)}</a>`).join('')}</div>
     <div class="dash-grid"><section class="panel dash-panel"><div class="section-title"><h2>Which content brings leads</h2><a class="subtle-link" href="#/tracking">All content ${arrow}</a></div><ol class="lead-bars">${DEMO.topVideos.map(([t,ch,n,img])=>`<li><img src="${I[img]}" alt=""><div class="lb-copy"><strong>${t}</strong><span>${ch}</span><div class="lb-bar"><i style="width:${Math.round(n/max*100)}%"></i></div></div><b>${n}<small> leads</small></b></li>`).join('')}</ol></section>
     <section class="panel dash-panel today-panel"><div class="section-title"><h2>Needs you today</h2><span class="live-note" aria-live="polite" id="live-note">Example activity</span></div><ul class="today" data-auto>${DEMO.today.map(([k,t,a,h],i)=>`<li class="t-${k}"><span class="dot" aria-hidden="true"></span><p>${t}</p><a class="button small ${k==='hot'?'':'secondary'}" href="${h}">${a}</a><button class="icon-btn" data-action="today-done" aria-label="Mark done: ${t}">${ic('check',16)}</button></li>`).join('')}<li class="today-empty"><p>All caught up for today.</p></li></ul></section></div></section>`;
+  }
+
+  function landing(){
+    const wave=Array.from({length:30},(_,i)=>`<i style="height:${16+Math.round(Math.abs(Math.sin(i*1.7))*24+((i*7)%11))}px"></i>`).join('');
+    const rules=[['Permit on every property post','Add the Trakheesi permit once per listing. Maison puts the number and QR code on every reel, carousel and ad for it.'],['Nothing sends without your OK','Replies are drafted, not sent. You approve each one, or choose which kinds can go out automatically.'],['Outreach inside the rules','Messages only go out between 9am and 6pm, numbers on the Do Not Call Registry are skipped, and a “no” stops the follow-ups.'],['Your advertiser permit on file','Your Media Council permit number is saved at setup and shown where it needs to be.']];
+    const faqs=[['Is Maison only for Dubai?','For now, yes. It’s built around Dubai’s property market and its advertising rules, so the advice, scripts and checks fit how you actually work.'],['Who sends the messages?','You do. Maison drafts replies and follow-ups from your answers in the setup interview. You approve them, and they go out from your brokerage’s WhatsApp and Instagram.'],['What does it cost?','We’re opening early access to a small group of agents and brokerages first. Pricing is shared with early access invites.'],['Where does my data go?','Your leads stay connected to your own accounts, and you can sync them to Google Sheets. We’ll publish the full data and security details before launch.']];
+    return `<div class="lp">
+    <header class="lp-nav"><a class="brand" href="#/welcome" aria-label="Maison">${brand()}</a>
+      <nav aria-label="Landing"><button class="lp-link" data-action="lp-scroll" data-target="lp-features">Product</button><button class="lp-link" data-action="lp-scroll" data-target="lp-rules">Dubai rules</button><button class="lp-link" data-action="lp-scroll" data-target="lp-faq">Questions</button></nav>
+      <div class="lp-nav-actions"><div class="theme-toggle" role="group" aria-label="Colour theme"><button data-action="theme" data-value="light" aria-pressed="${document.documentElement.dataset.theme!=='dark'}" aria-label="Light mode">${ic('sun',15)}</button><button data-action="theme" data-value="dark" aria-pressed="${document.documentElement.dataset.theme==='dark'}" aria-label="Dark mode">${ic('moon',15)}</button></div><a class="lp-login" href="#/home">Log in</a><button class="button" data-action="lp-scroll" data-target="lp-apply">Apply for early access</button></div></header>
+    <main id="main" class="lp-main">
+    <section class="lp-hero">
+      <div class="lp-hero-copy"><p class="lp-kicker">For real estate agents in Dubai</p><h1 class="lp-h1" tabindex="-1">The content and lead desk for Dubai agents.</h1>
+        <p class="lp-sub">Turn a voice note into a reel. Answer every WhatsApp while the buyer is still keen. See which videos actually bring you leads.</p>
+        <div class="lp-cta"><button class="button lg" data-action="lp-scroll" data-target="lp-apply">Apply for early access</button><a class="button secondary lg" href="#/home">See the demo portal</a></div>
+        <p class="lp-note">Early access for a small group of agents and brokerages.</p></div>
+      <div class="lp-stage" aria-label="Illustration: a reel, a new WhatsApp lead and this week’s numbers">
+        <div class="lp-phone"><div class="reel"><div class="reel-progress" aria-hidden="true"><i></i></div><img src="${I.interior}" alt=""><div class="reel-top">Reel · 0:28</div><div class="reel-cap"><strong>Sea views from every room</strong><span>3-bed, Dubai Marina · Open house Sat</span></div><div class="reel-side" aria-hidden="true"><b>${ic('heart',18)}</b><small>1.2k</small><b>${ic('message-circle',18)}</b><small>86</small></div></div></div>
+        <div class="lp-float lp-lead"><span class="lp-f-ic">${ic('message-circle',16)}</span><div><b>New WhatsApp lead</b><span>Hana wants a 2-bed in JLT</span><em>${ic('pen-line',13)} Reply drafted</em></div></div>
+        <div class="lp-float lp-kpi"><span>Leads this week</span><strong>24</strong><svg viewBox="0 0 100 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,24 16,20 33,21 50,14 66,16 83,8 100,4" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/></svg></div>
+        <div class="lp-float lp-voice"><span class="vn-play">${ic('play',12)}</span><div class="vn-wave" aria-hidden="true">${wave.slice(0,0)}${Array.from({length:16},(_,i)=>`<i style="height:${10+((i*7)%14)}px"></i>`).join('')}</div><span>0:42</span></div>
+      </div>
+    </section>
+    <section class="lp-works" aria-label="Works with"><span>Works with the apps you already use</span><ul>${['WhatsApp','Instagram','TikTok','YouTube','Property Finder','Bayut','Google Sheets'].map(n=>`<li>${n}</li>`).join('')}</ul></section>
+    <section class="lp-features" id="lp-features">
+      <article class="lp-row"><div class="lp-row-copy"><h2>Every lead answered while it’s still warm.</h2><p>DMs, comments, story replies, website forms and WhatsApp land in one inbox, sorted by who’s ready to buy. Maison drafts the reply in your voice. You read it, tweak it, send it.</p><ul class="lp-points"><li>Hot, warm and cold, judged from the message</li><li>A nudge when someone’s gone quiet for a week</li><li>See which video every lead came from</li></ul></div>
+        <div class="lp-demo lp-demo-chat"><div class="pv pv-chat loop"><div class="bub in b1">Hi! Saw your Marina video. Is the 3-bed still available?</div><div class="typing-dots b2" aria-hidden="true"><i></i><i></i><i></i></div><div class="bub out b3">Yes, it is. Open house Saturday 11am. Shall I save you a slot?</div><div class="bub in short b4">Yes please 🙏</div></div></div></article>
+      <article class="lp-row flip"><div class="lp-row-copy"><h2>Talk through a listing. Get the reel back.</h2><p>Record a voice note or drop your walkthrough clips. Maison writes the script, edits the video in your style, adds captions and the listing’s permit, and drafts the post.</p><ul class="lp-points"><li>Talking heads, carousels, property tours and long videos</li><li>One walkthrough becomes several short reels</li><li>Five styles to start, all easy to read on a phone</li></ul></div>
+        <div class="lp-demo lp-demo-reel"><div class="hx-demo"><div class="hx-before"><span class="hx-label">Before</span><div class="vn"><span class="vn-play" aria-hidden="true">${ic('play',14)}</span><div class="vn-wave" aria-hidden="true">${wave}</div><span class="vn-time">0:42</span></div><p>“3-bed in Marina, sea view, open house Saturday…”</p></div><div class="hx-arrow" aria-hidden="true">${ic('arrow-up-right',22)}</div><div class="hx-after"><span class="hx-label gold">After</span><div class="reel"><div class="reel-progress" aria-hidden="true"><i></i></div><img src="${I.home}" alt=""><div class="reel-top">Reel · 0:31</div><div class="reel-cap"><strong>Would you live here?</strong><span>3-bed, Dubai Marina</span></div></div></div></div></div></article>
+      <article class="lp-row"><div class="lp-row-copy"><h2>Know which videos bring buyers.</h2><p>Every video gets its own link, so you can see which ones turn into WhatsApp chats, forms and booked viewings. Your next scripts build on what worked.</p><ul class="lp-points"><li>Leads and booked calls for each video</li><li>Ad briefs for every launch</li><li>See which ads in your market keep running</li></ul></div>
+        <div class="lp-demo lp-demo-bars panel"><div class="section-title"><h3>Leads by video, this month</h3></div><ol class="lead-bars">${DEMO.topVideos.map(([t,ch,n,img])=>`<li><img src="${I[img]}" alt=""><div class="lb-copy"><strong>${t}</strong><span>${ch}</span><div class="lb-bar"><i style="width:${Math.round(n/11*100)}%"></i></div></div><b>${n}<small> leads</small></b></li>`).join('')}</ol></div></article>
+    </section>
+    <section class="lp-rules" id="lp-rules"><div class="lp-rules-in"><h2>Built for Dubai’s rules.</h2><p class="lp-rules-sub">Property ads, social posts and WhatsApp marketing all have rules here. Maison builds the checks into the work, so you don’t have to remember them at 11pm.</p>
+      <div class="lp-rules-grid">${rules.map(([h,p])=>`<div class="lp-rule"><span class="lp-check">${ic('check',16)}</span><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
+      <p class="lp-fine">You stay responsible for your listings and messages. Maison helps you check them before they go out.</p></div></section>
+    <section class="lp-steps"><h2>Up and running in your first week.</h2><ol>
+      <li><span class="lp-n">1</span><h3>A 10-minute interview</h3><p>By voice or text. Your areas, your clients, the questions they always ask, and what replies should never promise.</p></li>
+      <li><span class="lp-n">2</span><h3>Connect WhatsApp and Instagram</h3><p>Your brokerage’s accounts, so messages come from you, not from us.</p></li>
+      <li><span class="lp-n">3</span><h3>Your first drafts</h3><p>Replies waiting for your OK, three video ideas for this week, and a dashboard that starts filling in.</p></li></ol></section>
+    <section class="lp-faq" id="lp-faq"><h2>Questions</h2>${faqs.map(([q,a])=>`<details class="lp-q"><summary>${q}</summary><p>${a}</p></details>`).join('')}</section>
+    <section class="lp-apply" id="lp-apply"><div><h2>Get early access.</h2><p>We’re starting with a small group of Dubai agents and brokerages. Tell us who you are and we’ll be in touch.</p></div>
+      <form class="lp-form" data-form="apply" novalidate><div class="field"><label for="ap-name">Your name</label><input id="ap-name" name="name" autocomplete="name" required></div><div class="field"><label for="ap-brokerage">Brokerage</label><input id="ap-brokerage" name="brokerage" autocomplete="organization"></div><div class="field"><label for="ap-email">Work email</label><input id="ap-email" name="email" type="email" autocomplete="email" required></div>
+        <label class="lp-consent"><input type="checkbox" name="consent" required> I agree to Maison contacting me about early access.</label>
+        <button class="button lg" type="submit">Apply for early access</button><p class="lp-form-note" id="ap-msg" role="status">Demo form: nothing is sent.</p></form></section>
+    </main>
+    <footer class="lp-foot"><span>${brand()}</span><span>Prototype. Example images and data are illustrative.</span><a href="#/home">Log in</a></footer></div>`;
+  }
+  function afterLanding(){const FX=window.MaisonFX;const main=document.getElementById('main');
+    if(!FX||reduceMotion()||!main)return;const ease=[0.22,1,0.36,1];
+    const h1=main.querySelector('.lp-h1');if(h1){const txt=h1.textContent;h1.setAttribute('aria-label',txt);h1.innerHTML=txt.split(' ').map(w=>`<span class="w" aria-hidden="true"><span>${w}</span></span>`).join(' ');FX.animate(h1.querySelectorAll('.w>span'),{transform:['translateY(105%)','none'],opacity:[0,1]},{duration:0.75,delay:FX.stagger(0.07,{startDelay:0.1}),ease});}
+    FX.animate(main.querySelectorAll('.lp-kicker, .lp-sub, .lp-cta, .lp-note'),{opacity:[0,1],transform:['translateY(14px)','none']},{duration:0.6,delay:FX.stagger(0.09,{startDelay:0.35}),ease});
+    FX.animate(main.querySelector('.lp-phone'),{opacity:[0,1],transform:['translateY(40px) rotate(-2deg)','rotate(-2deg)']},{duration:0.9,delay:0.3,ease});
+    FX.animate(main.querySelectorAll('.lp-float'),{opacity:[0,1],transform:['translateY(20px) scale(.92)','none']},{duration:0.7,delay:FX.stagger(0.18,{startDelay:0.7}),ease});
+    const els=[...main.querySelectorAll('.lp-works, .lp-row .lp-row-copy, .lp-row .lp-demo, .lp-rules h2, .lp-rules-sub, .lp-rule, .lp-steps h2, .lp-steps li, .lp-faq h2, .lp-q, .lp-apply > div, .lp-form')];
+    els.forEach(el=>el.style.opacity='0');
+    const io=new IntersectionObserver(es=>{let n=0;es.forEach(en=>{if(!en.isIntersecting)return;io.unobserve(en.target);const el=en.target,row=el.closest('.lp-row'),flip=row&&row.classList.contains('flip');let from='translateY(30px)';if(el.classList.contains('lp-demo'))from=flip?'translateX(-48px)':'translateX(48px)';
+      FX.animate(el,{opacity:[0,1],transform:[from,'none']},{duration:0.8,delay:(n++)*0.1,ease}).finished.then(()=>{el.style.opacity='';el.style.transform='';});
+      if(el.classList.contains('lp-demo-bars'))el.querySelectorAll('.lb-bar i').forEach((b,i)=>FX.animate(b,{transform:['scaleX(0)','scaleX(1)']},{duration:1,delay:0.3+i*0.12,ease}));});},{threshold:0.15});
+    els.forEach(el=>io.observe(el));
+    const sweep=()=>{let left=0;els.forEach(el=>{if(el.style.opacity!=='0')return;if(el.getBoundingClientRect().top<window.innerHeight*0.5){io.unobserve(el);el.style.opacity='';}else left++;});if(!left)window.removeEventListener('scroll',sweep);};window.addEventListener('scroll',sweep,{passive:true});
   }
   function home(){
     const name=s.profile.name.trim().split(' ')[0];
     const setup=!s.profile.name.trim()||!s.profile.areas.length;
     const wave=Array.from({length:28},(_,i)=>`<i style="height:${18+Math.round(Math.abs(Math.sin(i*1.7))*26+((i*7)%11))}px"></i>`).join('');
     const cards=[
-      ['leads','Leads','Every DM, comment and form in one inbox, with replies drafted for you.',`<div class="pv pv-chat"><div class="bub in">Hi! Is the Marina 3-bed still available?</div><div class="bub out">Yes, it is. Open house Saturday 11am. Want me to save you a slot?</div><div class="bub in short">Yes please 🙏</div></div>`],
-      ['content','Content','Talking heads, carousels, property tours and long form, edited in your style.',`<div class="pv pv-content"><div class="mini-reel"><img src="${I.portrait||I.dubai}" alt=""><span>${ic('play',11)} 0:31</span></div><div class="mini-reel"><img src="${I.home}" alt=""><span>1/5</span></div><div class="mini-reel"><img src="${I.dubai}" alt=""><span>${ic('play',11)} 0:19</span></div></div>`],
-      ['ads','Ads & tracking','Briefs for every launch, winning ads in your market, and links that show what worked.',`<div class="pv pv-ad"><div class="ad-head"><span class="ad-av">m</span><div><b>${e(agent())}</b><small>Sponsored</small></div></div><img src="${I.dubai}" alt=""><div class="ad-cta"><span>Book a viewing</span><span aria-hidden="true">›</span></div></div>`]
+      ['leads','Leads','Every DM, comment and form in one inbox, with replies drafted for you.',`<div class="pv pv-chat loop"><div class="bub in b1">Hi! Is the Marina 3-bed still available?</div><div class="typing-dots b2" aria-hidden="true"><i></i><i></i><i></i></div><div class="bub out b3">Yes, it is. Open house Saturday 11am. Want me to save you a slot?</div><div class="bub in short b4">Yes please 🙏</div></div>`],
+      ['content','Content','Talking heads, carousels, property tours and long form, edited in your style.',`<div class="pv pv-content loop"><div class="mini-reel"><b class="mr-prog"></b><img src="${I.portrait||I.dubai}" alt=""><span>${ic('play',11)} 0:31</span></div><div class="mini-reel"><b class="mr-prog"></b><img src="${I.home}" alt=""><span>1/5</span></div><div class="mini-reel"><b class="mr-prog"></b><img src="${I.dubai}" alt=""><span>${ic('play',11)} 0:19</span></div></div>`],
+      ['ads','Ads & tracking','Briefs for every launch, winning ads in your market, and links that show what worked.',`<div class="pv pv-ad loop"><div class="ad-head"><span class="ad-av">m</span><div><b>${e(agent())}</b><small>Sponsored</small></div></div><img src="${I.dubai}" alt=""><div class="ad-cta"><span>Book a viewing</span><span aria-hidden="true">›</span></div></div>`]
     ];
     const apps=['WhatsApp','Instagram','TikTok','YouTube','LinkedIn','Meta Ads','Google Sheets','Notion','Google Drive','Property Finder','Bayut','Calendly'];
     return `${heading(name?`Welcome back, ${e(name)}. This week, 16 to 22 Nov`:'This week, 16 to 22 Nov','Here’s what’s working.','Views, leads and follow-ups from every channel, in one place.')}
@@ -697,7 +898,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     <div class="needs-grid v8">${cards.map(([id,title,desc,pv])=>`<a class="need-card" href="#/${id}"><div class="need-card-pv">${pv}</div><div class="need-card-body"><div><h2>${title}</h2><p>${desc}</p></div>${cardArrow()}</div></a>`).join('')}</div>
     <section class="hx how"><div class="hx-copy"><p class="eyebrow">How it works</p><h2 class="how-title">From voice note to posted reel.</h2><p class="page-intro">Talk through a listing. Maison writes the script, edits the video in your style, and drafts the caption.</p><div class="hx-actions"><a class="button" href="#/videos">Edit a video</a></div></div>
     <div class="hx-demo" aria-label="Example: a voice note becomes a vertical reel"><div class="hx-before"><span class="hx-label">Before</span><div class="vn"><span class="vn-play" aria-hidden="true">${ic('play',14)}</span><div class="vn-wave" aria-hidden="true">${wave}</div><span class="vn-time">0:42</span></div><p>“3-bed in Marina, sea view, open house Saturday…”</p></div><div class="hx-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="hx-after"><span class="hx-label gold">After</span><div class="reel"><img src="${I.interior}" alt="" draggable="false"><div class="reel-progress" aria-hidden="true"><i></i></div><div class="reel-top">Reel · 0:28</div><div class="reel-cap"><strong>Sea views from every room 🌊</strong><span>3-bed · Dubai Marina · Open house Sat</span></div><div class="reel-side" aria-hidden="true"><b>${ic('heart',18)}</b><small>1.2k</small><b>${ic('message-circle',18)}</b><small>86</small></div></div></div></div></section>
-    <section class="apps-strip" aria-label="Apps Maison is designed to work with"><p>Plugs into the apps you already use <span class="soon">Not connected in this demo</span></p><ul class="apps-row static">${apps.map(n=>`<li class="app-chip">${n}</li>`).join('')}</ul></section>
+    <section class="apps-strip" aria-label="Apps Maison is designed to work with"><p>Plugs into the apps you already use <span class="soon">Not connected in this demo</span></p><div class="marquee" aria-label="${apps.join(', ')}"><div class="mq-row">${[...apps,...apps].map(n=>`<span class="app-chip" aria-hidden="true">${n}</span>`).join('')}</div><div class="mq-row rev">${[...apps.slice().reverse(),...apps.slice().reverse()].map(n=>`<span class="app-chip" aria-hidden="true">${n}</span>`).join('')}</div></div></section>
     <section class="referral"><div><h2>Know an agent who’d use this?</h2><p>Invite them. You both get a month free when they join.</p></div><button class="button secondary" data-action="referral">Copy invite link</button></section>
     <div class="home-note"><span>Example data, names and images are illustrative.</span><a href="#/brand">Your business details ${arrow}</a></div>`;
   }
@@ -711,7 +912,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   let lastRoute=null;
   const reduceMotion=()=>{try{return window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch{return false;}};
   function countUp(el){const raw=el.textContent.trim(),m=raw.match(/^([\d.,]+)(.*)$/);if(!m)return;const target=parseFloat(m[1].replace(/,/g,'')),dec=(m[1].split('.')[1]||'').length,suf=m[2],t0=performance.now(),dur=900;
-    const step=now=>{const p=Math.min(1,(now-t0)/dur),v=target*(1-Math.pow(1-p,3));el.textContent=v.toFixed(dec)+suf;if(p<1)requestAnimationFrame(step);else el.textContent=raw;};el.textContent=(0).toFixed(dec)+suf;requestAnimationFrame(step);}
+    const step=now=>{const p=Math.min(1,(now-t0)/dur),v=target*(1-Math.pow(1-p,3));el.textContent=(m[1].includes(',')?Math.round(v).toLocaleString('en-US'):v.toFixed(dec))+suf;if(p<1)requestAnimationFrame(step);else el.textContent=raw;};el.textContent=(0).toFixed(dec)+suf;requestAnimationFrame(step);}
   function afterRender(r){const FX=window.MaisonFX,changed=r!==lastRoute;lastRoute=r;
     if(FX&&!reduceMotion())document.querySelectorAll('[data-auto]').forEach(el=>{try{FX.autoAnimate(el,{duration:220,easing:'ease-out'});}catch{}});
     if(!FX||reduceMotion())return;
@@ -720,21 +921,46 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     if(!changed)return;
     const ease=[0.22,1,0.36,1];
     if(r!=='home'){FX.animate(main,{opacity:[0,1]},{duration:0.25,ease:'easeOut'});return;}
-    // Home: one orchestrated entrance built from the dashboard's own data, then live activity.
-    FX.animate(main.querySelectorAll('.page-heading, .kpi, .dash-panel'),{opacity:[0,1],transform:['translateY(14px)','none']},{duration:0.55,delay:FX.stagger(0.07),ease});
-    main.querySelectorAll('.spark').forEach((sv,i)=>FX.animate(sv,{clipPath:['inset(0 100% 0 0)','inset(0 0% 0 0)']},{duration:1.1,delay:0.3+i*0.08,ease}));
-    main.querySelectorAll('.lb-bar i').forEach((bar,i)=>FX.animate(bar,{transform:['scaleX(0)','scaleX(1)']},{duration:0.9,delay:0.55+i*0.09,ease}));
-    main.querySelectorAll('.today li:not(.today-empty)').forEach((li,i)=>FX.animate(li,{opacity:[0,1],transform:['translateX(-12px)','none']},{duration:0.45,delay:0.7+i*0.1,ease}));
-    startLiveFeed();
+    // Home: headline, data and live activity, all on one easing curve.
+    const h1=main.querySelector('.page-heading h1');if(h1&&!h1.dataset.split){const txt=h1.textContent;h1.setAttribute('aria-label',txt);h1.dataset.split='1';h1.innerHTML=txt.split(' ').map(w=>`<span class="w" aria-hidden="true"><span>${w}</span></span>`).join(' ');
+      FX.animate(h1.querySelectorAll('.w>span'),{transform:['translateY(105%)','none'],opacity:[0,1]},{duration:0.7,delay:FX.stagger(0.08),ease});}
+    FX.animate(main.querySelectorAll('.page-heading .eyebrow, .page-intro, .setup-banner'),{opacity:[0,1],transform:['translateY(12px)','none']},{duration:0.6,delay:FX.stagger(0.08,{startDelay:0.25}),ease});
+    FX.animate(main.querySelectorAll('.kpi'),{opacity:[0,1],transform:['translateY(24px) scale(.97)','none']},{duration:0.6,delay:FX.stagger(0.08,{startDelay:0.4}),ease});
+    FX.animate(main.querySelectorAll('.dash-panel'),{opacity:[0,1],transform:['translateY(24px)','none']},{duration:0.65,delay:FX.stagger(0.1,{startDelay:0.65}),ease});
+    main.querySelectorAll('.kpi strong').forEach((el,i)=>setTimeout(()=>countUp(el),400+i*80));
+    main.querySelectorAll('.spark').forEach((sv,i)=>FX.animate(sv,{clipPath:['inset(0 100% 0 0)','inset(0 0% 0 0)']},{duration:1.2,delay:0.6+i*0.08,ease}));
+    main.querySelectorAll('.lb-bar i').forEach((bar,i)=>FX.animate(bar,{transform:['scaleX(0)','scaleX(1)']},{duration:1,delay:0.9+i*0.1,ease}));
+    main.querySelectorAll('.lead-bars li').forEach((li,i)=>FX.animate(li,{opacity:[0,1],transform:['translateX(-14px)','none']},{duration:0.5,delay:0.85+i*0.1,ease}));
+    main.querySelectorAll('.today li:not(.today-empty)').forEach((li,i)=>FX.animate(li,{opacity:[0,1],transform:['translateX(14px)','none']},{duration:0.5,delay:0.9+i*0.1,ease}));
+    // below the fold: staggered reveals as you scroll
+    const groups=[main.querySelector('.home-sub'),...main.querySelectorAll('.needs-grid.v8 .need-card'),main.querySelector('.how .hx-copy'),main.querySelector('.how .hx-demo'),main.querySelector('.apps-strip'),main.querySelector('.referral')].filter(Boolean);
+    groups.forEach(el=>{el.style.opacity='0';});
+    const io=new IntersectionObserver(es=>{let n=0;es.forEach(en=>{if(!en.isIntersecting)return;io.unobserve(en.target);const el=en.target,fromSide=el.classList.contains('hx-demo')?'translateX(40px)':el.classList.contains('hx-copy')?'translateX(-40px)':'translateY(36px)';
+      FX.animate(el,{opacity:[0,1],transform:[fromSide,'none']},{duration:0.8,delay:(n++)*0.12,ease}).finished.then(()=>{el.style.opacity='';el.style.transform='';});});},{threshold:0.15});
+    groups.forEach(el=>io.observe(el));
+    const sweep=()=>{let left=0;groups.forEach(el=>{if(el.style.opacity!=='0')return;if(el.getBoundingClientRect().top<window.innerHeight*0.6){io.unobserve(el);el.style.opacity='';}else left++;});if(!left)window.removeEventListener('scroll',sweep);};
+    window.addEventListener('scroll',sweep,{passive:true});
+    startLiveFeed();startLiveData();
   }
   const LIVE=[
     {k:'hot',t:'New WhatsApp lead: Hana wants a 2-bed in JLT, budget AED 1.8M',a:'Reply drafted',h:'#/leads',kpi:1,src:'Marina vs JLT'},
     {k:'warm',t:'Instagram DM: “Is the Marina tour unit still available?”',a:'Reply drafted',h:'#/leads',kpi:1,src:'Inside a 3-bed with full sea view'},
-    {k:'idea',t:'Your carousel just passed 5,000 views',a:'Make another',h:'#/photos',kpi:0}
+    {k:'idea',t:'Your carousel just passed 5,000 views',a:'Make another',h:'#/photos',kpi:0},
+    {k:'warm',t:'Website form: Daniel, budget AED 2.5M, moving in 3 to 6 months',a:'Reply drafted',h:'#/leads',kpi:1,src:'Off-plan in 2026'},
+    {k:'due',t:'Priya M. opened your price list twice today',a:'Follow up',h:'#/leads',kpi:0},
+    {k:'hot',t:'Comment on your reel: “Can I see it this weekend?”',a:'Reply drafted',h:'#/leads',kpi:1,src:'Inside a 3-bed with full sea view'},
+    {k:'idea',t:'Marina vs JLT is your best video this week. Make part 2?',a:'Script it',h:'#/content',kpi:0}
   ];
-  let liveTimer=null,liveIdx=0;
-  function startLiveFeed(){clearTimeout(liveTimer);liveIdx=0;const tick=()=>{if(route()!=='home')return;if(document.hidden){liveTimer=setTimeout(tick,2000);return;}addLive(LIVE[liveIdx++]);if(liveIdx<LIVE.length)liveTimer=setTimeout(tick,6500);};liveTimer=setTimeout(tick,3200);}
+  let liveTimer=null,liveIdx=0,dataTimer=null;
+  function startLiveFeed(){clearTimeout(liveTimer);liveIdx=0;const tick=()=>{if(route()!=='home')return;if(!document.hidden)addLive(LIVE[(liveIdx++)%LIVE.length]);liveTimer=setTimeout(tick,4800);};liveTimer=setTimeout(tick,2600);}
+  function startLiveData(){clearInterval(dataTimer);dataTimer=setInterval(()=>{if(route()!=='home'){clearInterval(dataTimer);return;}if(document.hidden)return;
+    const v=document.querySelector('.kpi strong');if(v&&/^[\d,]+$/.test(v.textContent)){const n=parseInt(v.textContent.replace(/,/g,''),10)+5+Math.floor(Math.random()*40);v.textContent=n.toLocaleString('en-US');v.classList.remove('tick');void v.offsetWidth;v.classList.add('tick');}
+    shiftSpark(0,15+Math.random()*14);},2200);}
+  function shiftSpark(k,val){const sv=document.querySelector(`.spark[data-k="${k}"]`);if(!sv)return;const arr=DEMO.kpis[k][3];arr.push(val);if(arr.length>8)arr.shift();
+    const max=Math.max(...arr,1),w=100,h=28,pts=arr.map((y,i)=>`${(i/(arr.length-1)*w).toFixed(1)},${(h-(y/max)*h*0.9-1).toFixed(1)}`).join(' ');sv.querySelector('polyline').setAttribute('points',pts);
+    const FX=window.MaisonFX;if(FX)FX.animate(sv.querySelector('polyline'),{transform:[`translateX(${(w/(arr.length-1)).toFixed(1)}px)`,'none']},{duration:0.8,ease:[0.22,1,0.36,1]});}
   function addLive(ev){const ul=document.querySelector('.today');if(!ul)return;const FX=window.MaisonFX;
+    const items=ul.querySelectorAll('li:not(.today-empty)');if(items.length>=6)items[items.length-1].remove();
     ul.insertAdjacentHTML('afterbegin',`<li class="t-${ev.k} is-new"><span class="dot" aria-hidden="true"></span><p><span class="new-tag">Just now</span> ${ev.t}</p><a class="button small ${ev.k==='hot'?'':'secondary'}" href="${ev.h}">${ev.a}</a><button class="icon-btn" data-action="today-done" aria-label="Mark done: ${ev.t}">${ic('check',16)}</button></li>`);
     const note=document.getElementById('live-note');if(note)note.textContent='Example activity: '+ev.t;
     if(ev.kpi){const kpis=document.querySelectorAll('.kpi');[kpis[1],ev.k==='hot'?kpis[2]:null].forEach(k=>{if(!k)return;const st=k.querySelector('strong');st.textContent=String(parseInt(st.textContent,10)+1);k.classList.remove('bumped');void k.offsetWidth;k.classList.add('bumped');});
@@ -836,6 +1062,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     const serviceBusiness=s.profile.industry==='services';
     formats={'talking-head':'Talking head','property-photos':'Carousel','property-video':serviceBusiness?'Service video':'Property tour'};
     
+    if(route()==='welcome'){document.title='Maison: content and leads for Dubai agents';app.innerHTML=landing();afterLanding();return;}
     const r=route(),isContent=contentTools.some(([id])=>id===r),isLeads=['leads','outbound','whatsapp'].includes(r),isAds=adTools.some(([id])=>id===r);
     if(r==='whatsapp')s.work.inbound.channel='whatsapp';
     const toolRoute=r==='whatsapp'?'leads':r;
@@ -843,7 +1070,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     document.title=`Maison — ${routes.find(([id])=>id===r)[1]}`;
     const tools=isContent?contentTools:isLeads?leadTools:isAds?adTools:[];
     const toolNav=tools.length?`<nav class="tool-nav ${isContent?'content-nav':isAds?'ads-nav':'leads-nav'}" aria-label="${isContent?'Content tools':isAds?'Ad tools':'Lead tools'}">${tools.map(([id,label])=>`<a href="#/${id}" ${id===toolRoute?'aria-current="page"':''}>${label}</a>`).join('')}</nav>`:'';
-    app.innerHTML=`<div class="site-shell"><header class="site-header"><a class="brand" href="#/home" aria-label="Maison home">${brand()}</a><div class="theme-toggle" role="group" aria-label="Colour theme"><button data-action="theme" data-value="light" aria-pressed="${document.documentElement.dataset.theme!=='dark'}" aria-label="Light mode">${ic('sun',15)}</button><button data-action="theme" data-value="dark" aria-pressed="${document.documentElement.dataset.theme==='dark'}" aria-label="Dark mode">${ic('moon',15)}</button></div><span class="demo-label">Interactive demo</span></header><nav class="main-nav" aria-label="Main navigation">${mainRoutes.map(([id,label])=>`<a href="#/${id}" ${id===r||(id==='content'&&isContent)||(id==='leads'&&isLeads)||(id==='ads'&&isAds)?'aria-current="page"':''}>${label}</a>`).join('')}</nav><main id="main" data-page="${r}">${toolNav}${page()}</main><footer class="app-footer"><span>Prototype · no live AI, publishing or account connections.</span><span>Your inputs stay in this browser.</span></footer></div><div id="companion-root">${companion()}</div>`;
+    app.innerHTML=`<div class="site-shell"><header class="site-header"><a class="brand" href="#/home" aria-label="Maison home">${brand()}</a><div class="theme-toggle" role="group" aria-label="Colour theme"><button data-action="theme" data-value="light" aria-pressed="${document.documentElement.dataset.theme!=='dark'}" aria-label="Light mode">${ic('sun',15)}</button><button data-action="theme" data-value="dark" aria-pressed="${document.documentElement.dataset.theme==='dark'}" aria-label="Dark mode">${ic('moon',15)}</button></div><span class="demo-label">Interactive demo</span><a class="signout" href="#/welcome">Sign out</a></header><nav class="main-nav" aria-label="Main navigation">${mainRoutes.map(([id,label])=>`<a href="#/${id}" ${id===r||(id==='content'&&isContent)||(id==='leads'&&isLeads)||(id==='ads'&&isAds)?'aria-current="page"':''}>${label}</a>`).join('')}</nav><main id="main" data-page="${r}">${toolNav}${page()}</main><footer class="app-footer"><span>Prototype · no live AI, publishing or account connections.</span><span>Your inputs stay in this browser.</span></footer></div><div id="companion-root">${companion()}</div>`;
     if(r==='videos')bindDrop();afterRender(r);if(r==='leads'||r==='whatsapp'){const t=document.querySelector('.thread-msgs');if(t)t.scrollTop=t.scrollHeight;}
     if(companionOpen){const log=document.querySelector('#messages');log.scrollTop=log.scrollHeight;}
     if(legacyCompanion)document.querySelector('#chat-input').focus({preventScroll:true});
@@ -864,6 +1091,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   document.addEventListener('click',ev=>{if(ev.target.closest('.skip')){ev.preventDefault();const main=document.querySelector('main');main.tabIndex=-1;main.focus();return;}const b=ev.target.closest('[data-action]');if(!b)return;const action=b.dataset.action;if(action==='idea'){activeIdea=b.dataset.id;render();}if(action==='approve'){const i=s.plan.find(i=>i.id===activeIdea);if(i){i.status='approved';save();render();toast('Idea approved here. Nothing published.');}}if(action==='style'){s.profile.style=b.dataset.value;s.profile.font=b.dataset.value==='editorial'?'serif':'sans';save();render();}if(action==='video-type'){videoType=b.dataset.value;render();}if(action==='remove-video'){if(videoURL)URL.revokeObjectURL(videoURL);videoURL='';footage=null;render();}if(action==='qualify'){const lead=s.leads.find(l=>l.id===b.dataset.id);if(lead){lead.qualified=!lead.qualified;save();render();}}if(action==='suggest')sendChat(b.dataset.value);if(action==='export-video')download('maison-edit-brief.json',JSON.stringify({prototype:true,rendered:false,agent:agent(),brokerage:s.profile.company,contentType:videoType,file:footage?.name||null,style:s.profile.style,font:s.profile.font,accent:s.profile.accent,voice:s.profile.voice,note:'Production specification only. No AI editing, timed captions or rendering performed.'},null,2));if(action==='export-photo')download('maison-photo-brief.json',JSON.stringify({prototype:true,rendered:false,agent:agent(),brokerage:s.profile.company,file:photoFile?.name||null,headline:photoHeadline,ratio:photoRatio,style:s.profile.style,font:s.profile.font,note:'Layout specification only, not an exported image or carousel.'},null,2));if(action==='export-reception')download('maison-receptionist-setup.json',JSON.stringify({prototype:true,connected:false,installed:false,qualification:['Need','Area','Budget','Timeline'],handoffRequired:true,notes:s.receptionRules||'',note:'Setup concept only. Requires approved business account, permissions, verified answers and a real integration.'},null,2));if(action==='export-plan')download('maison-draft-content-plan.md',`# ${agent()} — draft personal-brand content plan\n\nTemplate examples only. No live AI or research.\n\n`+s.plan.map(i=>`## ${i.title}\n\n${formats[i.contentType]} · ${purpose[i.stage]}\n\n${i.script}\n\nYour take: ${i.note||'Not added'}\n\n${i.shots.map(t=>'- '+t).join('\n')}\n\nCTA: ${i.cta}`).join('\n\n'),'text/markdown');});
   document.addEventListener('click',ev=>{const b=ev.target.closest('[data-action]');if(!b)return;const a=b.dataset.action,v=b.dataset.value;
     if(a==='theme'){document.documentElement.dataset.theme=v;try{localStorage.setItem('maison-theme',v);}catch{}render();}
+    if(a==='lp-scroll'){const t=document.getElementById(b.dataset.target);if(t){t.scrollIntoView({behavior:reduceMotion()?'auto':'smooth',block:'start'});const f=t.querySelector('h2, input');if(f&&b.dataset.target==='lp-apply')setTimeout(()=>document.getElementById('ap-name')?.focus({preventScroll:true}),500);}}
     if(a==='video-length'){videoLength=v;render();}
     if(a==='edit-mode'){editMode=v;render();}
     if(a==='post-type'){postType=v;render();}
@@ -882,6 +1110,9 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     if(a==='ob-back'){obStep=Math.max(0,obStep-1);render();}
     if(a==='ob-voice'){toast('Demo: voice answers would be transcribed into this field.');}
   });
+  document.addEventListener('submit',ev=>{const f=ev.target;if(f.dataset.form!=='apply')return;ev.preventDefault();const msg=document.getElementById('ap-msg');const name=f.name.value.trim(),email=f.email.value.trim(),ok=f.consent.checked;
+    if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)||!ok){msg.textContent=!name?'Add your name.':!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)?'Add a valid work email.':'Tick the box so we can contact you.';msg.classList.add('err');return;}
+    msg.classList.remove('err');msg.textContent=`Thanks, ${name.split(' ')[0]}. This is a demo, so nothing was sent.`;f.querySelector('button[type=submit]').disabled=true;});
   document.addEventListener('change',ev=>{const t=ev.target;
     if(t.dataset.action==='auto-send'){autoSend=t.checked;}
     if(t.id==='caption-font'){s.profile.captionFont=t.value;save();render();}

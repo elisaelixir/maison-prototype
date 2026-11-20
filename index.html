@@ -672,6 +672,124 @@ html[data-theme=dark] .fmt-talking{color:#A9B3FF}html[data-theme=dark] .fmt-caro
 .plan-b{grid-template-columns:repeat(6,minmax(150px,1fr))}.plan-b .pb-card{padding:10px}.plan-b .pc-top{flex-wrap:wrap}
 @media(max-width:640px){.plan-b{grid-template-columns:repeat(6,minmax(220px,80%))}}
 </style>
+<style id="v13-app-polish">
+/* Operate surface: stable navigation, compact work objects, quiet colour. */
+.site-shell{width:100%;max-width:1600px;padding:0 42px 0 266px}
+.site-shell h1,.site-shell h2,.site-shell h3{font-family:var(--body);font-weight:600}
+.site-shell h1{font-size:34px;letter-spacing:-1.1px;line-height:1.2}
+.site-shell .page-intro{font-size:14px;max-width:660px;line-height:1.65}
+.site-shell .page-heading{margin-bottom:16px}
+.site-shell .site-header{height:82px;border-bottom:1px solid var(--line);gap:16px}
+.site-shell main{padding-top:28px}
+.site-shell .panel,.site-shell .need-card,.site-shell .kpi{border-radius:12px;box-shadow:none!important}
+.site-shell .button{border-radius:8px;font-size:13px;min-height:44px}
+.site-shell .theme-toggle button{width:38px;height:38px}
+.site-shell .demo-label{font-size:11px;padding:5px 10px;margin-left:0}
+.site-shell .signout{font-size:12px}
+.workspace-demo-note{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--muted);margin:0 0 22px}
+.workspace-demo-note::before{content:'';height:6px;width:6px;border-radius:50%;background:var(--sea)}
+.site-shell .setup-banner{padding:12px 16px;min-height:0;border-radius:9px;background:var(--surface)!important;margin:0 0 24px;gap:14px;box-shadow:none}
+.site-shell .setup-banner .sb-icon{width:34px;height:34px;border-radius:8px;flex-shrink:0}
+.site-shell .setup-banner strong{font-size:13px}.site-shell .setup-banner p{font-size:11px;margin-top:2px}
+.site-shell .setup-banner .button{margin-left:auto;font-size:11px;min-height:38px;padding:8px 12px}
+.site-shell .home-sub{font-family:var(--body);font-size:16px;letter-spacing:-.2px;margin:0 0 14px}
+.site-shell .activity-heading{margin-top:30px}
+.site-shell .needs-grid.v8{gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.site-shell .need-card{transition:border-color .15s,transform .15s;min-width:0;overflow:hidden}
+.site-shell .need-card:hover{transform:translateY(-3px);border-color:var(--sea);box-shadow:0 8px 24px #102b2310!important}
+.site-shell .need-card-pv{height:164px;padding:16px;border-bottom:0}
+.site-shell .need-card-body{padding:18px;min-height:105px;gap:8px;align-items:start}
+.site-shell .need-card-body h2{font-size:19px;letter-spacing:-.4px;margin-bottom:7px}
+.site-shell .need-card-body p{font-size:12px;line-height:1.6;max-width:280px}
+.site-shell .need-card-body>.arrow{display:grid;place-items:center;background:var(--raised);border-radius:50%;width:28px;height:28px;flex-shrink:0}
+.site-shell .need-card .mini-reel{border-radius:9px;box-shadow:0 4px 10px #142c2414}
+.site-shell .need-card .pv-ad{border-radius:8px;overflow:hidden}
+.site-shell .need-card .bub{font-size:10px;line-height:1.5;padding:9px 11px;max-width:90%;box-shadow:none}
+.site-shell .need-card .pv-chat{justify-content:center}
+.site-shell .dash .kpi-row{gap:12px}
+.site-shell .kpi{padding:16px 18px;min-height:124px}
+.site-shell .kpi strong{font-size:28px;letter-spacing:-.8px}
+.site-shell .kpi-label{font-size:12px}.site-shell .kpi-note{font-size:10px}
+.site-shell .dash-grid{gap:16px;margin-top:16px}
+.site-shell .dash-panel{padding:20px}
+.site-shell .section-title h2{font-size:16px;letter-spacing:-.3px}
+.site-shell .lead-bars li{padding:12px 0}.site-shell .lead-bars img{width:46px;height:55px;border-radius:6px}
+.site-shell .lb-copy strong{font-size:12px}.site-shell .lb-copy>span{font-size:10px}
+.site-shell .today li p{font-size:12px;line-height:1.6}
+.site-shell .today .button{font-size:10px;padding:8px;min-height:36px}
+.site-shell main[data-page=home]>.hx,.site-shell main[data-page=home]>.apps-strip,.site-shell main[data-page=home]>.referral{display:none}
+.site-shell .app-footer{font-size:10px;margin-top:14px;line-height:1.6}
+.site-shell .tool-nav a{border-radius:8px;font-size:12px}
+.site-shell input,.site-shell textarea,.site-shell select{border-radius:8px;font-size:14px}
+html[data-theme=light] .site-shell{--bg:#f5f7f6;--raised:#edf3f0;--line:#e1e8e4;--line2:#ccd9d2;--text:#20372e;--muted:#64766c;--soft:#385548;--sea:#18745a;--sand:#94621d;--chip:#dcece3;--on-chip:#174d39;--well:#f1f5f2}
+html[data-theme=light] body:has(.site-shell){background:#f5f7f6!important}
+html[data-theme=light] .site-shell .button:not(.secondary){background:#1c7258;border-color:#1c7258;color:white}
+html[data-theme=light] .site-shell .button:not(.secondary):hover{background:#155a45}
+html[data-theme=light] .site-shell .need-card:nth-child(1) .need-card-pv{background:#e1efe7}
+html[data-theme=light] .site-shell .need-card:nth-child(2) .need-card-pv{background:#f1e7de}
+html[data-theme=light] .site-shell .need-card:nth-child(3) .need-card-pv{background:#e5eaf5}
+html[data-theme=light] .site-shell .need-card .bub.in{background:white;color:#284638}
+html[data-theme=light] .site-shell .need-card .bub.out{background:#21755d;color:white}
+html[data-theme=light] .site-shell .setup-banner{background:#eaf2ed!important;border-color:#d7e5dc}
+html[data-theme=light] .site-shell .kpi:nth-child(1){background:#eef4f0}
+html[data-theme=light] .site-shell .kpi:nth-child(2){background:#f0f3fa}
+html[data-theme=light] .site-shell .kpi:nth-child(3){background:#fcf1e9}
+html[data-theme=light] .site-shell .kpi:nth-child(4){background:#fbf5e7;border-color:#eadfbe}
+html[data-theme=light] .site-shell .lb-bar i{background:#60a38a}
+html[data-theme=light] .site-shell .tool-nav a[aria-current]{background:#1c7258!important;color:white!important;border-color:#1c7258}
+html[data-theme=light] .companion-launcher{background:#1c7258;color:white;border-color:#1c7258;box-shadow:0 5px 20px #17452f26}
+@media(min-width:1001px){
+ body:has(.site-shell)::before{content:'';position:fixed;inset:0 auto 0 0;width:224px;background:#163d31;border-right:1px solid #285241;z-index:18;pointer-events:none}
+ .site-shell .site-header>.brand{position:fixed;top:28px;left:26px;z-index:22;color:#f2f8f4;gap:10px}
+ .site-shell .brand-mark{background:#dfeddf;color:#173b2c;width:34px;height:34px;border-radius:9px}
+ .site-shell .wordmark{font-size:30px}
+ .site-shell .main-nav{position:fixed;left:14px;top:124px;width:196px;display:flex!important;flex-direction:column;align-items:stretch;gap:6px;border:0;border-radius:0;padding:0;background:none;backdrop-filter:none;overflow:visible;z-index:21}
+ .site-shell .main-nav a{display:flex;justify-content:flex-start;gap:12px;flex:none;min-height:46px;padding:0 14px;border-radius:8px;font-size:13px;font-weight:500;color:#bad0c4;margin:0;white-space:normal}
+ .site-shell .main-nav a:hover{background:#234c3d;color:#fff}
+ .site-shell .main-nav a[aria-current]{background:#dcece1;color:#183f2f;font-weight:600}
+ .site-shell .main-nav a:last-child{margin:34px 0 0;border-top:1px solid #365647;padding-top:7px;border-radius:0}
+ .site-shell .main-nav a:last-child[aria-current]{border-radius:8px;border:0;padding-top:0}
+ .site-shell .theme-toggle{margin-left:auto}
+}
+@media(max-width:1200px) and (min-width:1001px){.site-shell{padding-left:252px;padding-right:28px}.site-shell .need-card-body{padding:14px}.site-shell .need-card-body p{font-size:11px}.site-shell .need-card-pv{height:145px;padding:10px}}
+@media(max-width:1000px){
+ .site-shell{padding:0 24px;max-width:1200px}.site-shell .site-header{height:76px}
+ .site-shell .main-nav{position:relative;top:auto;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:4px;padding:5px;border-radius:11px;background:var(--surface);overflow:visible;backdrop-filter:none}
+ .site-shell .main-nav a{justify-content:center;gap:7px;font-size:12px;padding:5px 8px;white-space:normal;border-radius:7px;text-align:center;line-height:1.3}
+ .site-shell .main-nav a:last-child{margin-left:0}
+ html[data-theme=light] .site-shell .main-nav a[aria-current]{background:#dcece1;color:#1c503b}
+ .site-shell .dash-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:760px){
+ .site-shell{padding:0 18px}.site-shell main{padding-top:24px}
+ .site-shell h1{font-size:29px;letter-spacing:-.9px}.site-shell .page-intro{font-size:13px}
+ .site-shell .needs-grid.v8{grid-template-columns:minmax(0,1fr);gap:12px}
+ .site-shell .need-card{display:grid;grid-template-columns:108px minmax(0,1fr)}
+ .site-shell .need-card-pv{height:145px;padding:9px;display:flex;align-items:center;justify-content:center}
+ .site-shell .need-card-body{padding:15px 13px;align-self:center;min-height:0}
+ .site-shell .need-card-body h2{font-size:17px}.site-shell .need-card-body p{font-size:11px;display:block}
+ .site-shell .need-card .pv-chat{font-size:9px}.site-shell .need-card .bub{font-size:8px;padding:6px;max-width:100%}
+ .site-shell .need-card .pv-content{height:124px;min-width:0;gap:4px}.site-shell .mini-reel{min-width:0;flex:1}
+ .site-shell .pv-ad{max-width:90px}.site-shell .pv-ad .ad-head{padding:4px}.site-shell .ad-head b{font-size:8px}.site-shell .ad-head small{font-size:6px}.site-shell .ad-cta{font-size:7px;padding:4px}
+ .site-shell .setup-banner{gap:10px;padding:10px 12px}.site-shell .setup-banner p{display:none}.site-shell .setup-banner strong{font-size:11px}.site-shell .setup-banner .sb-icon{display:none}
+ .site-shell .workspace-demo-note{font-size:10px;line-height:1.5}
+ .site-shell .kpi-row{grid-template-columns:repeat(2,minmax(0,1fr))}.site-shell .kpi{min-height:122px;padding:14px}
+ .site-shell .dash-panel{padding:16px}
+}
+@media(max-width:480px){
+ .site-shell{padding:0 14px}.site-shell .site-header{height:70px;gap:10px}.site-shell .site-header .wordmark{font-size:28px}
+ .site-shell .site-header .demo-label{display:none}.site-shell .site-header .theme-toggle{margin-left:auto}
+ .site-shell .main-nav{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .site-shell .main-nav a{min-height:44px;font-size:11px}.site-shell .main-nav a .ic{width:15px;height:15px}
+ .site-shell .need-card{grid-template-columns:100px minmax(0,1fr)}.site-shell .need-card-body>.arrow{display:none}
+ .site-shell .need-card-pv{height:134px}.site-shell .need-card-body p{font-size:10px}
+ .site-shell .today li{gap:8px}.site-shell .today .button{font-size:9px;padding:6px}.site-shell .setup-banner .button{font-size:10px}
+}
+.site-shell .setup-banner{display:flex!important}.site-shell .setup-banner .button{width:auto!important;flex-shrink:0}
+@media(max-width:760px){.site-shell .need-card .pv-chat{height:auto;display:flex;flex-direction:column;gap:8px;transform:none}.site-shell .need-card .pv-chat .bub{position:static;transform:none;margin:0;width:100%;font-size:9px}.site-shell .need-card .pv-chat .typing-dots,.site-shell .need-card .pv-chat .b4{display:none}.site-shell .need-card .pv-chat .b3{font-size:8px}.site-shell .need-card .pv-content .mini-reel:not(:first-child){display:none}.site-shell .need-card .pv-content .mini-reel{width:80px;max-width:80px;flex:0 1 80px}}
+@media(max-width:760px){.site-shell .theme-toggle button,.site-shell .today .button,.site-shell .setup-banner .button{min-height:44px;min-width:44px}}
+@media(prefers-reduced-motion:reduce){.site-shell .need-card{transition:none}.site-shell .need-card:hover{transform:none}}
+</style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -1142,11 +1260,11 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
       ['ads','Ads & tracking','Briefs for every launch, winning ads in your market, and links that show what worked.',`<div class="pv pv-ad loop"><div class="ad-head"><span class="ad-av">m</span><div><b>${e(agent())}</b><small>Sponsored</small></div></div><img src="${I.dubai}" alt=""><div class="ad-cta"><span>Book a viewing</span><span aria-hidden="true">›</span></div></div>`]
     ];
     const apps=['WhatsApp','Instagram','TikTok','YouTube','LinkedIn','Meta Ads','Google Sheets','Notion','Google Drive','Property Finder','Bayut','Calendly'];
-    return `${heading(name?`Welcome back, ${e(name)}. This week, 16 to 22 Nov`:'This week, 16 to 22 Nov','Here’s what’s working.','Views, leads and follow-ups from every channel, in one place.')}
-    ${setup?`<a class="setup-banner" href="#/start"><span class="sb-icon" aria-hidden="true">${ic('mic',24)}</span><div><strong>Do your setup interview</strong><p>About 30 minutes. Talk it through with Wispr Flow or your phone’s dictation, or type. Stop and come back any time.</p></div><span class="button small">Start interview</span></a>`:''}
-    ${dashboard()}
-    <h2 class="home-sub">Jump back in</h2>
+    return `${heading(name?`Welcome back, ${e(name)}.`:'Your workspace','Your work, all together.','Create content. Keep conversations moving. Plan your next campaign.')}<div class="workspace-demo-note">Interactive preview <span>·</span> All activity and results below are illustrative</div>
+    ${setup?`<a class="setup-banner" href="#/start"><span class="sb-icon" aria-hidden="true">${ic('pen-line',20)}</span><div><strong>Make it yours</strong><p>Do the setup interview whenever you’re ready. Talk it through with Wispr Flow or type.</p></div><span class="button small">Start interview</span></a>`:''}
+    <h2 class="home-sub">Your tools</h2>
     <div class="needs-grid v8">${cards.map(([id,title,desc,pv])=>`<a class="need-card" href="#/${id}"><div class="need-card-pv">${pv}</div><div class="need-card-body"><div><h2>${title}</h2><p>${desc}</p></div>${cardArrow()}</div></a>`).join('')}</div>
+    <h2 class="home-sub activity-heading">Example activity</h2>${dashboard()}
     <section class="hx how"><div class="hx-copy"><p class="eyebrow">How it works</p><h2 class="how-title">From voice note to posted reel.</h2><p class="page-intro">Talk through a listing. Maison writes the script, edits the video in your style, and drafts the caption.</p><div class="hx-actions"><a class="button" href="#/videos">Edit a video</a></div></div>
     <div class="hx-demo" aria-label="Example: a voice note becomes a vertical reel"><div class="hx-before"><span class="hx-label">Before</span><div class="vn"><span class="vn-play" aria-hidden="true">${ic('play',14)}</span><div class="vn-wave" aria-hidden="true">${wave}</div><span class="vn-time">0:42</span></div><p>“3-bed in Marina, sea view, open house Saturday…”</p></div><div class="hx-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="hx-after"><span class="hx-label gold">After</span><div class="reel"><img src="${I.interior}" alt="" draggable="false"><div class="reel-progress" aria-hidden="true"><i></i></div><div class="reel-top">Reel · 0:28</div><div class="reel-cap"><strong>Sea views from every room 🌊</strong><span>3-bed · Dubai Marina · Open house Sat</span></div><div class="reel-side" aria-hidden="true"><b>${ic('heart',18)}</b><small>1.2k</small><b>${ic('message-circle',18)}</b><small>86</small></div></div></div></div></section>
     <section class="apps-strip" aria-label="Apps Maison is designed to work with"><p>Plugs into the apps you already use <span class="soon">Not connected in this demo</span></p>${logoMarquee('Plugs into')}</section>
@@ -1360,7 +1478,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     document.title=`Maison — ${routes.find(([id])=>id===r)[1]}`;
     const tools=isContent?contentTools:isLeads?leadTools:isAds?adTools:[];
     const toolNav=tools.length?`<nav class="tool-nav ${isContent?'content-nav':isAds?'ads-nav':'leads-nav'}" aria-label="${isContent?'Content tools':isAds?'Ad tools':'Lead tools'}">${tools.map(([id,label])=>`<a href="#/${id}" ${id===toolRoute?'aria-current="page"':''}>${label}</a>`).join('')}</nav>`:'';
-    app.innerHTML=`<div class="site-shell"><header class="site-header"><a class="brand" href="#/home" aria-label="Maison home">${brand()}</a><div class="theme-toggle" role="group" aria-label="Colour theme"><button data-action="theme" data-value="light" aria-pressed="${document.documentElement.dataset.theme!=='dark'}" aria-label="Light mode">${ic('sun',15)}</button><button data-action="theme" data-value="dark" aria-pressed="${document.documentElement.dataset.theme==='dark'}" aria-label="Dark mode">${ic('moon',15)}</button></div><span class="demo-label">Interactive demo</span><a class="signout" href="#/welcome">Sign out</a></header><nav class="main-nav" aria-label="Main navigation">${mainRoutes.map(([id,label])=>`<a href="#/${id}" ${id===r||(id==='content'&&isContent)||(id==='leads'&&isLeads)||(id==='ads'&&isAds)?'aria-current="page"':''}>${label}</a>`).join('')}</nav><main id="main" data-page="${r}">${toolNav}${page()}</main><footer class="app-footer"><span>Prototype · no live AI, publishing or account connections.</span><span>Your inputs stay in this browser.</span></footer></div><div id="companion-root">${companion()}</div>`;
+    app.innerHTML=`<div class="site-shell"><header class="site-header"><a class="brand" href="#/home" aria-label="Maison home">${brand()}</a><div class="theme-toggle" role="group" aria-label="Colour theme"><button data-action="theme" data-value="light" aria-pressed="${document.documentElement.dataset.theme!=='dark'}" aria-label="Light mode">${ic('sun',15)}</button><button data-action="theme" data-value="dark" aria-pressed="${document.documentElement.dataset.theme==='dark'}" aria-label="Dark mode">${ic('moon',15)}</button></div><span class="demo-label">Interactive demo</span><a class="signout" href="#/welcome">Sign out</a></header><nav class="main-nav" aria-label="Main navigation">${mainRoutes.map(([id,label])=>`<a href="#/${id}" ${id===r||(id==='content'&&isContent)||(id==='leads'&&isLeads)||(id==='ads'&&isAds)?'aria-current="page"':''}>${ic(({home:'trending-up',leads:'message-circle',content:'pen-line',ads:'play',brand:'mic'})[id],18)}<span>${label}</span></a>`).join('')}</nav><main id="main" data-page="${r}">${toolNav}${page()}</main><footer class="app-footer"><span>Prototype · no live AI, publishing or account connections.</span><span>Your inputs stay in this browser.</span></footer></div><div id="companion-root">${companion()}</div>`;
     if(r==='videos')bindDrop();afterRender(r);if(r==='leads'||r==='whatsapp'){const t=document.querySelector('.thread-msgs');if(t)t.scrollTop=t.scrollHeight;}
     if(companionOpen){const log=document.querySelector('#messages');log.scrollTop=log.scrollHeight;}
     if(legacyCompanion)document.querySelector('#chat-input').focus({preventScroll:true});

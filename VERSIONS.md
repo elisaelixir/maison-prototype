@@ -15,8 +15,10 @@ Every version is kept in three ways:
 | `v8-light` | 2026-11-20 | Same as v8 with the light theme (default) and a light/dark switch. | [View](https://elisaelixir.github.io/maison-prototype/versions/v8-light/) |
 | `v9-motion` | 2026-11-20 | Lucide icons, smooth list changes, page entrances, scroll reveals, live hero demo, typed drafts. | [View](https://elisaelixir.github.io/maison-prototype/versions/v9-motion/) |
 | `v10-calm-audit` | 2026-11-20 | avoid-ai-design audit: calmer, fewer stock effects, live activity on home. | [View](https://elisaelixir.github.io/maison-prototype/versions/v10-calm-audit/) |
+| `v11-landing` | 2026-11-20 | Public landing page plus a lively portal home. | [View](https://elisaelixir.github.io/maison-prototype/versions/v11-landing/) |
+| `v12-call-gaps` | 2026-11-20 | Remaining call feedback: 42-question interview (dictation or typing), LinkedIn in inbound and outbound, people like your best leads, carousel from a reference, prompt preview, AI offer suggestions, booking page with source links, rolling app-logo strip. | [View](https://elisaelixir.github.io/maison-prototype/versions/v12-call-gaps/) |
 | `v13-app-polish` | 2026-11-20 | App-first portal: forest-green sidebar, quiet coloured surfaces, visual tools first, compact typography, marketing removed from the workspace. Landing and existing tools retained. | [View](https://elisaelixir.github.io/maison-prototype/versions/v13-app-polish/#portal) |
-| `v11-landing` | 2026-11-20 | public landing page plus a lively portal home. | [View](https://elisaelixir.github.io/maison-prototype/versions/v11-landing/) |
+| `v14-pipeline-plan` | 2026-11-20 | Current. From the AgencyBase review, on top of the app-first design: Leads pipeline (table and board, edit in place, overdue follow-ups, CSV export), results by channel in Tracking (leads to viewings to deals, cost per lead), and a weekly Content plan (mix, board, calendar, table). | [View](https://elisaelixir.github.io/maison-prototype/versions/v14-pipeline-plan/) |
 
 The live site (https://elisaelixir.github.io/maison-prototype/) always shows the latest version. The portal is at `#portal`.
 

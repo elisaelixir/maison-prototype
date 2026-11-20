@@ -15,7 +15,8 @@ Every version is kept in three ways:
 | `v8-light` | 2026-11-20 | Same as v8 with the light theme (default) and a light/dark switch. | [View](https://elisaelixir.github.io/maison-prototype/versions/v8-light/) |
 | `v9-motion` | 2026-11-20 | Lucide icons, smooth list changes, page entrances, scroll reveals, live hero demo, typed drafts. | [View](https://elisaelixir.github.io/maison-prototype/versions/v9-motion/) |
 | `v10-calm-audit` | 2026-11-20 | avoid-ai-design audit: calmer, fewer stock effects, live activity on home. | [View](https://elisaelixir.github.io/maison-prototype/versions/v10-calm-audit/) |
-| `v11-landing` | 2026-11-20 | Current: public landing page plus a lively portal home. | [View](https://elisaelixir.github.io/maison-prototype/versions/v11-landing/) |
+| `v11-landing` | 2026-11-20 | Public landing page plus a lively portal home. | [View](https://elisaelixir.github.io/maison-prototype/versions/v11-landing/) |
+| `v12-call-gaps` | 2026-11-20 | Remaining call feedback: 42-question interview (dictation or typing), LinkedIn in inbound and outbound, people like your best leads, carousel from a reference, prompt preview, AI offer suggestions, booking page with source links. | [View](https://elisaelixir.github.io/maison-prototype/versions/v12-call-gaps/) |
 
 The live site (https://elisaelixir.github.io/maison-prototype/) always shows the latest version. The portal is at `#portal`.
 

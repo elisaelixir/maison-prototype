@@ -792,7 +792,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   const photo=(key,cls='',alt='Illustrative stock image, not a live property listing')=>`<img src="${I[key]}" class="${cls}" alt="${alt}" draggable="false">`;
   const agent=()=>s.profile.name.trim()||'Your name';
   const area=()=>s.profile.areas[0]||'your area';
-  const route=()=>{const h=location.hash;if(!h||h==='#'||h==='#/'||h==='#/welcome')return 'welcome';const id=h.slice(2);return routes.some(([r])=>r===id)?id:'home';};
+  const route=()=>{const h=location.hash;if(!h||h==='#'||h==='#/'||h==='#/welcome'||h==='#welcome')return 'welcome';const id=h.startsWith('#/')?h.slice(2):(h.slice(1)==='portal'?'home':h.slice(1));return routes.some(([r])=>r===id)?id:'home';};
   const departments=window.MaisonDepartments({state:s,e,heading,tag,arrow,save,render,download,toast,renderRecords:leadRecords});
   function save(){try{localStorage.setItem(KEY,JSON.stringify(s));}catch{toast('Browser storage is full. Keep this tab open.');}}
   function toast(text){const el=document.querySelector('#toast');el.textContent=text;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3500);}
@@ -828,7 +828,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     const faqs=[['Is Maison only for Dubai?','For now, yes. It’s built around Dubai’s property market and its advertising rules, so the advice, scripts and checks fit how you actually work.'],['Who sends the messages?','You do. Maison drafts replies and follow-ups from your answers in the setup interview. You approve them, and they go out from your brokerage’s WhatsApp and Instagram.'],['What does it cost?','We’re opening early access to a small group of agents and brokerages first. Pricing is shared with early access invites.'],['Where does my data go?','Your leads stay connected to your own accounts, and you can sync them to Google Sheets. We’ll publish the full data and security details before launch.']];
     return `<div class="lp">
     <header class="lp-nav"><a class="brand" href="#/welcome" aria-label="Maison">${brand()}</a>
-      <nav aria-label="Landing"><button class="lp-link" data-action="lp-scroll" data-target="lp-features">Product</button><button class="lp-link" data-action="lp-scroll" data-target="lp-rules">Dubai rules</button><button class="lp-link" data-action="lp-scroll" data-target="lp-faq">Questions</button></nav>
+      <nav aria-label="Landing"><button class="lp-link" data-action="lp-scroll" data-target="lp-features">Platform</button><button class="lp-link" data-action="lp-scroll" data-target="lp-how">How it works</button><button class="lp-link" data-action="lp-scroll" data-target="lp-rules">Compliance</button><button class="lp-link" data-action="lp-scroll" data-target="lp-faq">FAQ</button></nav>
       <div class="lp-nav-actions"><div class="theme-toggle" role="group" aria-label="Colour theme"><button data-action="theme" data-value="light" aria-pressed="${document.documentElement.dataset.theme!=='dark'}" aria-label="Light mode">${ic('sun',15)}</button><button data-action="theme" data-value="dark" aria-pressed="${document.documentElement.dataset.theme==='dark'}" aria-label="Dark mode">${ic('moon',15)}</button></div><a class="lp-login" href="#/home">Log in</a><button class="button" data-action="lp-scroll" data-target="lp-apply">Apply for early access</button></div></header>
     <main id="main" class="lp-main">
     <section class="lp-hero">
@@ -855,11 +855,11 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     <section class="lp-rules" id="lp-rules"><div class="lp-rules-in"><h2>Built for Dubai’s rules.</h2><p class="lp-rules-sub">Property ads, social posts and WhatsApp marketing all have rules here. Maison builds the checks into the work, so you don’t have to remember them at 11pm.</p>
       <div class="lp-rules-grid">${rules.map(([h,p])=>`<div class="lp-rule"><span class="lp-check">${ic('check',16)}</span><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
       <p class="lp-fine">You stay responsible for your listings and messages. Maison helps you check them before they go out.</p></div></section>
-    <section class="lp-steps"><h2>Up and running in your first week.</h2><ol>
+    <section class="lp-steps" id="lp-how"><h2>Up and running in your first week.</h2><ol>
       <li><span class="lp-n">1</span><h3>A 10-minute interview</h3><p>By voice or text. Your areas, your clients, the questions they always ask, and what replies should never promise.</p></li>
       <li><span class="lp-n">2</span><h3>Connect WhatsApp and Instagram</h3><p>Your brokerage’s accounts, so messages come from you, not from us.</p></li>
       <li><span class="lp-n">3</span><h3>Your first drafts</h3><p>Replies waiting for your OK, three video ideas for this week, and a dashboard that starts filling in.</p></li></ol></section>
-    <section class="lp-faq" id="lp-faq"><h2>Questions</h2>${faqs.map(([q,a])=>`<details class="lp-q"><summary>${q}</summary><p>${a}</p></details>`).join('')}</section>
+    <section class="lp-faq" id="lp-faq"><h2>Frequently asked questions</h2>${faqs.map(([q,a])=>`<details class="lp-q"><summary>${q}</summary><p>${a}</p></details>`).join('')}</section>
     <section class="lp-apply" id="lp-apply"><div><h2>Get early access.</h2><p>We’re starting with a small group of Dubai agents and brokerages. Tell us who you are and we’ll be in touch.</p></div>
       <form class="lp-form" data-form="apply" novalidate><div class="field"><label for="ap-name">Your name</label><input id="ap-name" name="name" autocomplete="name" required></div><div class="field"><label for="ap-brokerage">Brokerage</label><input id="ap-brokerage" name="brokerage" autocomplete="organization"></div><div class="field"><label for="ap-email">Work email</label><input id="ap-email" name="email" type="email" autocomplete="email" required></div>
         <label class="lp-consent"><input type="checkbox" name="consent" required> I agree to Maison contacting me about early access.</label>

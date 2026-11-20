@@ -558,6 +558,23 @@ textarea.flash{animation:flash 1.2s ease-out}@keyframes flash{0%{box-shadow:0 0 
 .bk-src{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;background:#E3F6F2;color:#137D6E;padding:4px 9px;border-radius:999px}
 .bk-form{display:flex;flex-direction:column;gap:7px}.bk-form input,.bk-form select{min-height:38px;font-size:13px;background:#fff;color:#15171C;border:1px solid #D4D0C8;border-radius:10px;padding:0 10px}.bk-form .button{min-height:40px;font-size:13px;padding:8px;background:#15171C;color:#fff;border-color:#15171C}
 @media(max-width:760px){.oi-list,.booking{grid-template-columns:minmax(0,1fr)}.sim-list li{flex-wrap:wrap}.sim-actions{width:100%;justify-content:flex-end}}
+
+/* logo marquee: official logo files from /logos, app name until a file is added */
+.lp-works{display:block;padding:28px 0}
+.lp-works-label{font-size:14px;color:var(--muted);text-align:center;margin-bottom:16px}
+.logo-marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.lm-track{display:flex;width:max-content}
+.lm-set{display:flex;align-items:center;gap:56px;padding-right:56px}
+.lm-item{display:inline-flex;align-items:center;gap:10px;height:44px;white-space:nowrap}
+.lm-item img{height:28px;width:auto;display:block;filter:grayscale(1);opacity:.75;transition:filter .3s,opacity .3s}
+.lm-item:hover img{filter:none;opacity:1}
+.lm-item .lm-name{display:none}
+.lm-item.no-logo .lm-name{display:inline;font-family:var(--display);font-weight:600;font-size:20px;color:var(--soft);letter-spacing:-.01em}
+.apps-strip .lm-item.no-logo .lm-name{font-size:17px}
+html[data-theme=dark] .lm-item img{filter:grayscale(1) invert(1) brightness(1.6)}
+html[data-theme=dark] .lm-item:hover img{filter:none}
+@media (prefers-reduced-motion: no-preference){.lm-track{animation:lm 36s linear infinite}.logo-marquee:hover .lm-track,.logo-marquee:focus-within .lm-track{animation-play-state:paused}@keyframes lm{to{transform:translateX(-50%)}}}
+@media (prefers-reduced-motion: reduce){.lm-track{width:auto}.lm-set{flex-wrap:wrap;justify-content:center;gap:16px 32px;padding:0}.lm-set[aria-hidden]{display:none}}
 </style>
 </head>
 <body>
@@ -869,6 +886,9 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     <section class="panel dash-panel today-panel"><div class="section-title"><h2>Needs you today</h2><span class="live-note" aria-live="polite" id="live-note">Example activity</span></div><ul class="today" data-auto>${DEMO.today.map(([k,t,a,h],i)=>`<li class="t-${k}"><span class="dot" aria-hidden="true"></span><p>${t}</p><a class="button small ${k==='hot'?'':'secondary'}" href="${h}">${a}</a><button class="icon-btn" data-action="today-done" aria-label="Mark done: ${t}">${ic('check',16)}</button></li>`).join('')}<li class="today-empty"><p>All caught up for today.</p></li></ul></section></div></section>`;
   }
 
+  const APPS=[['whatsapp','WhatsApp'],['instagram','Instagram'],['tiktok','TikTok'],['youtube','YouTube'],['linkedin','LinkedIn'],['meta','Meta Ads'],['property-finder','Property Finder'],['bayut','Bayut'],['google-sheets','Google Sheets'],['notion','Notion'],['calendly','Calendly']];
+  function logoMarquee(label){const one=APPS.map(([slug,name])=>`<span class="lm-item"><img src="logos/${slug}.svg" alt="${name}" height="28" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"><span class="lm-name">${name}</span></span>`).join('');
+    return `<div class="logo-marquee" role="region" aria-label="${label}: ${APPS.map(a=>a[1]).join(', ')}"><div class="lm-track"><div class="lm-set">${one}</div><div class="lm-set" aria-hidden="true">${one}</div></div></div>`;}
   function landing(){
     const wave=Array.from({length:30},(_,i)=>`<i style="height:${16+Math.round(Math.abs(Math.sin(i*1.7))*24+((i*7)%11))}px"></i>`).join('');
     const rules=[['Permit on every property post','Add the Trakheesi permit once per listing. Maison puts the number and QR code on every reel, carousel and ad for it.'],['Nothing sends without your OK','Replies are drafted, not sent. You approve each one, or choose which kinds can go out automatically.'],['Outreach inside the rules','Messages only go out between 9am and 6pm, numbers on the Do Not Call Registry are skipped, and a “no” stops the follow-ups.'],['Your advertiser permit on file','Your Media Council permit number is saved at setup and shown where it needs to be.']];
@@ -890,7 +910,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
         <div class="lp-float lp-voice"><span class="vn-play">${ic('play',12)}</span><div class="vn-wave" aria-hidden="true">${wave.slice(0,0)}${Array.from({length:16},(_,i)=>`<i style="height:${10+((i*7)%14)}px"></i>`).join('')}</div><span>0:42</span></div>
       </div>
     </section>
-    <section class="lp-works" aria-label="Works with"><span>Works with the apps you already use</span><ul>${['WhatsApp','Instagram','TikTok','YouTube','Property Finder','Bayut','Google Sheets'].map(n=>`<li>${n}</li>`).join('')}</ul></section>
+    <section class="lp-works"><p class="lp-works-label">Works with the apps you already use</p>${logoMarquee('Works with')}</section>
     <section class="lp-features" id="lp-features">
       <article class="lp-row"><div class="lp-row-copy"><h2>Every lead answered while it’s still warm.</h2><p>DMs, comments, story replies, website forms and WhatsApp land in one inbox, sorted by who’s ready to buy. Maison drafts the reply in your voice. You read it, tweak it, send it.</p><ul class="lp-points"><li>Hot, warm and cold, judged from the message</li><li>A nudge when someone’s gone quiet for a week</li><li>See which video every lead came from</li></ul></div>
         <div class="lp-demo lp-demo-chat"><div class="pv pv-chat loop"><div class="bub in b1">Hi! Saw your Marina video. Is the 3-bed still available?</div><div class="typing-dots b2" aria-hidden="true"><i></i><i></i><i></i></div><div class="bub out b3">Yes, it is. Open house Saturday 11am. Shall I save you a slot?</div><div class="bub in short b4">Yes please 🙏</div></div></div></article>
@@ -945,7 +965,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
     <div class="needs-grid v8">${cards.map(([id,title,desc,pv])=>`<a class="need-card" href="#/${id}"><div class="need-card-pv">${pv}</div><div class="need-card-body"><div><h2>${title}</h2><p>${desc}</p></div>${cardArrow()}</div></a>`).join('')}</div>
     <section class="hx how"><div class="hx-copy"><p class="eyebrow">How it works</p><h2 class="how-title">From voice note to posted reel.</h2><p class="page-intro">Talk through a listing. Maison writes the script, edits the video in your style, and drafts the caption.</p><div class="hx-actions"><a class="button" href="#/videos">Edit a video</a></div></div>
     <div class="hx-demo" aria-label="Example: a voice note becomes a vertical reel"><div class="hx-before"><span class="hx-label">Before</span><div class="vn"><span class="vn-play" aria-hidden="true">${ic('play',14)}</span><div class="vn-wave" aria-hidden="true">${wave}</div><span class="vn-time">0:42</span></div><p>“3-bed in Marina, sea view, open house Saturday…”</p></div><div class="hx-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="hx-after"><span class="hx-label gold">After</span><div class="reel"><img src="${I.interior}" alt="" draggable="false"><div class="reel-progress" aria-hidden="true"><i></i></div><div class="reel-top">Reel · 0:28</div><div class="reel-cap"><strong>Sea views from every room 🌊</strong><span>3-bed · Dubai Marina · Open house Sat</span></div><div class="reel-side" aria-hidden="true"><b>${ic('heart',18)}</b><small>1.2k</small><b>${ic('message-circle',18)}</b><small>86</small></div></div></div></div></section>
-    <section class="apps-strip" aria-label="Apps Maison is designed to work with"><p>Plugs into the apps you already use <span class="soon">Not connected in this demo</span></p><div class="marquee" aria-label="${apps.join(', ')}"><div class="mq-row">${[...apps,...apps].map(n=>`<span class="app-chip" aria-hidden="true">${n}</span>`).join('')}</div><div class="mq-row rev">${[...apps.slice().reverse(),...apps.slice().reverse()].map(n=>`<span class="app-chip" aria-hidden="true">${n}</span>`).join('')}</div></div></section>
+    <section class="apps-strip" aria-label="Apps Maison is designed to work with"><p>Plugs into the apps you already use <span class="soon">Not connected in this demo</span></p>${logoMarquee('Plugs into')}</section>
     <section class="referral"><div><h2>Know an agent who’d use this?</h2><p>Invite them. You both get a month free when they join.</p></div><button class="button secondary" data-action="referral">Copy invite link</button></section>
     <div class="home-note"><span>Example data, names and images are illustrative.</span><a href="#/brand">Your business details ${arrow}</a></div>`;
   }

@@ -3,7 +3,7 @@
 Every version is kept in three ways:
 
 1. **A live copy** you can open in the browser (the View links below).
-2. **A Git tag** with the same name, so the code can be restored exactly.
+2. **An archive branch** called `archive/<name>`, so the exact code can be restored.
 3. **The full commit history** on `main`.
 
 | Version | Date | What changed | Open |
@@ -23,6 +23,6 @@ The live site (https://elisaelixir.github.io/maison-prototype/) always shows the
 
 - **Just to look:** open its View link above.
 - **To make it the live site again:** copy `versions/<name>/index.html` over the root `index.html` and commit, or ask Claude to restore `<name>`.
-- **From Git:** `git checkout <name> -- index.html` then commit.
+- **From Git:** `git checkout origin/archive/<name> -- index.html` then commit.
 
-When a new version ships, add a row here, a folder under `versions/`, and a tag.
+When a new version ships, add a row here, a folder under `versions/`, and an `archive/<name>` branch.

@@ -792,7 +792,7 @@ window.MaisonImages.portrait = 'data:image/webp;base64,UklGRpJgAABXRUJQVlA4IIZgA
   const photo=(key,cls='',alt='Illustrative stock image, not a live property listing')=>`<img src="${I[key]}" class="${cls}" alt="${alt}" draggable="false">`;
   const agent=()=>s.profile.name.trim()||'Your name';
   const area=()=>s.profile.areas[0]||'your area';
-  const route=()=>{const h=location.hash;if(!h||h==='#'||h==='#/'||h==='#/welcome'||h==='#welcome')return 'welcome';const id=h.startsWith('#/')?h.slice(2):(h.slice(1)==='portal'?'home':h.slice(1));return routes.some(([r])=>r===id)?id:'home';};
+  const route=()=>{const h=location.hash;if(!h||h==='#'||h==='#/'||h==='#/welcome'||h==='#welcome')return 'welcome';const id=h.startsWith('#/')?h.slice(2):(h.slice(1)==='portal'?'home':h.slice(1));return routes.some(([r])=>r===id)?id:'welcome';};
   const departments=window.MaisonDepartments({state:s,e,heading,tag,arrow,save,render,download,toast,renderRecords:leadRecords});
   function save(){try{localStorage.setItem(KEY,JSON.stringify(s));}catch{toast('Browser storage is full. Keep this tab open.');}}
   function toast(text){const el=document.querySelector('#toast');el.textContent=text;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3500);}
